@@ -9,14 +9,14 @@ const MyNavbar: FunctionComponent = () => {
     { title: 'Qui sommes nous ?', href: '#' },
   ]
   return (
-    <Navbar isBordered variant="sticky" className="bg-white dark:bg-gray-800">
+    <Navbar isBordered   variant="floating" className="bg-transparent">
       <Navbar.Brand>
-        <Text className="font-bold text-slate-600 dark:text-white">
+        <Text className="font-bold text-slate-500 dark:text-slate-900">
           {' '}
           {appTitle}{' '}
         </Text>
       </Navbar.Brand>
-      <Navbar.Content hideIn="xs" variant="highlight-rounded">
+      <Navbar.Content hideIn="xs" variant="highlight-rounded" activeColor={"warning"}>
         {links.map((item, index) => (
           <Navbar.Link key={index} href={item.href}>
             {item.title}

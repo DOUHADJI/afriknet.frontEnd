@@ -27,12 +27,12 @@ const Services: FunctionComponent = () => {
   ]
 
   return (
-    <div className="h-1/4 bg-[url('/images/ill_7.png')] bg-cover bg-center ">
+    <div className="h-full bg-[url('/images/ill_7.png')] bg-cover bg-center ">
       <Text className="text-center text-gray-700 text-lg font-bold pt-5">
         Disposez de nos offres partout où vous êtes !
       </Text>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 h-full lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2">
         {services.map((item, index) => (
           <ServiceCard
             title={item.title}

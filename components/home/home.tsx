@@ -7,7 +7,7 @@ import Offers from './homeComponents/offers/offers'
 
 const Home: FunctionComponent = () => {
   return (
-    <>
+    <div className='relative'>
       <MyNavbar />
       <Banner />
       <MiddlePageBanner />
@@ -16,7 +16,7 @@ const Home: FunctionComponent = () => {
       <Footer />
       </div>
       
-    </>
+    </div>
   )
 }
 
