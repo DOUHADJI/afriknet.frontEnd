@@ -2,7 +2,11 @@ import { Button, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 import { BsCursorFill, BsSignal } from 'react-icons/bs'
 
-const UserBannerContent: FunctionComponent<{ user }> = ({ user }) => {
+const UserBannerContent: FunctionComponent<{
+  user
+  setShowRequestModal
+  setShowComplaintModal
+}> = ({ user, setShowRequestModal, setShowComplaintModal }) => {
   const userInformations = {
     name: 'userName',
     firstName: 'firstName',
@@ -27,6 +31,7 @@ const UserBannerContent: FunctionComponent<{ user }> = ({ user }) => {
             auto
             size={'lg'}
             type={null}
+            onPress={() => setShowRequestModal(true)}
           >
             Formuler une requête
           </Button>
@@ -37,6 +42,7 @@ const UserBannerContent: FunctionComponent<{ user }> = ({ user }) => {
             auto
             size={'lg'}
             type={null}
+            onPress={() => setShowComplaintModal(true)}
           >
             Formuler une plainte
           </Button>

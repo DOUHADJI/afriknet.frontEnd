@@ -13,7 +13,7 @@ const UserBannerAskForService: FunctionComponent = () => {
         size={'lg'}
         type={null}
       >
-        Formuler une requête
+        Souscrire à un forfait
       </Button>
 
       <Button
@@ -24,7 +24,7 @@ const UserBannerAskForService: FunctionComponent = () => {
         size={'lg'}
         type={null}
       >
-        Formuler une requête
+        Souscrire à un abonnement
       </Button>
     </div>
   )
