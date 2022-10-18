@@ -18,6 +18,8 @@ const UserHome: FunctionComponent = () => {
           userWantSignIn={true}
           setUserWantSignIn={setUserWantSignIn}
           isBlur={false}
+          closeButton={false}
+          preventClose={true}
         />
       </div>
     )

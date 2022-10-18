@@ -9,7 +9,7 @@ const UserSpaceProfil: FunctionComponent<{ user }> = ({ user }) => {
     visible == false ? setVisible(true) : null
   }
   return (
-    <div className="flex items-center align-center w-full ">
+    <div className="flex items-center align-center w-full my-4 ">
       {visible == true ? (
         <UpdateProfilInformations user={user} hideUpdateForm={setVisible} />
       ) : (

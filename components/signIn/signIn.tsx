@@ -16,11 +16,17 @@ import { signIn } from 'next-auth/react'
 const SignInPage: FunctionComponent<{
   isBlur: boolean
   userWantSignIn: boolean
+  preventClose: boolean
+  closeButton: boolean
   setUserWantSignIn
-}> = ({ userWantSignIn, setUserWantSignIn, isBlur }) => {
+}> = ({
+  userWantSignIn,
+  setUserWantSignIn,
+  isBlur,
+  preventClose,
+  closeButton,
+}) => {
   const route = useRouter()
-
-  console.log(process.env.NEXT_PUBLIC_GITHUB_ID)
 
   const logUser = () => {
     route.push('/api/auth/signin')
@@ -30,7 +36,8 @@ const SignInPage: FunctionComponent<{
     <Modal
       open={userWantSignIn}
       blur={isBlur}
-      closeButton
+      closeButton={closeButton}
+      preventClose={preventClose}
       onClose={() => setUserWantSignIn(false)}
       css={{ background: '#968f41' }}
     >
@@ -76,17 +83,8 @@ const SignInPage: FunctionComponent<{
         </Row>
       </Modal.Body>
       <Modal.Footer>
-        <Button
-          auto
-          color="error"
-          onPress={() => setUserWantSignIn(false)}
-          css={{ background: '#ef3b6e' }}
-          type={null}
-        >
-          Close
-        </Button>
         <Button auto color="success" onPress={logUser} type={null}>
-          Sign in
+          Se connecter
         </Button>
       </Modal.Footer>
     </Modal>

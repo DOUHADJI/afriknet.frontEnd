@@ -20,7 +20,9 @@ const UserBannerContent: FunctionComponent<{
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 bg-green-700/50 h-full p-12">
       <div className="flex flex-col items-center justify-center gap-12 h-full ">
         <Text b color="white" size={17} className="text-center">
-          <span className="uppercase">code d'identification client : </span>
+          <span className="uppercase">
+            code d&apos;identification client :{' '}
+          </span>
           <span> {user.code ? user.code : 'userCode here'} </span>
         </Text>
 

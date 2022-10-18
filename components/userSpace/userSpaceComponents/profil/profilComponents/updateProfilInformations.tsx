@@ -22,9 +22,9 @@ const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
       <Text b className="text-gray-500 text-center  dark:text-white">
         Mettre profil à jour{' '}
       </Text>
-      <Card className="mt-6 w-3/4 dark:bg-gray-900 dark:border-gray-700 ">
+      <Card className="mt-6 w-3/4 p-4 dark:bg-gray-900 dark:border-gray-700 ">
         <Card.Body>
-          <Grid.Container>
+          <Grid.Container gap={2}>
             <Grid sm={4} className="w-full">
               <ImgUploader user={user} />
             </Grid>

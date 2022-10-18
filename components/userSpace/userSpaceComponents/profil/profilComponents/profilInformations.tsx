@@ -20,6 +20,7 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
                   src={user?.image}
                   width={140}
                   height={140}
+                  alt="User Profil image"
                   className="rounded-[40px] border-2 border-gray-500 dark:border-white"
                 />
                 <Text b className="text-sm text-gray-500  dark:text-white">

@@ -14,11 +14,7 @@ const MyNavbar: FunctionComponent<{ setUserWantSignIn; setUserWantSignUp }> = ({
   ]
 
   return (
-    <Navbar
-      isBordered
-      variant="floating"
-      className="bg-red-900 dark:bg-slate-900"
-    >
+    <Navbar isBordered variant="floating" className="">
       <Navbar.Brand>
         <Text className="font-bold text-slate-500 dark:text-slate-900">
           {' '}
@@ -45,7 +41,7 @@ const MyNavbar: FunctionComponent<{ setUserWantSignIn; setUserWantSignUp }> = ({
         </Navbar.Item>
         <Navbar.Link>
           <Button auto flat onClick={() => setUserWantSignIn(true)} type={null}>
-            Login
+            Se connecter
           </Button>
         </Navbar.Link>
         <Navbar.Item>

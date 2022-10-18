@@ -9,8 +9,12 @@ import {
   BsQuestionCircleFill,
 } from 'react-icons/bs'
 import { userAgent } from 'next/server'
+import { useRouter } from 'next/router'
 
 const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
+  const LogOutUser = () => {
+    signOut()
+  }
   const MenuItems = [
     {
       title: 'Accueil',
@@ -52,7 +56,7 @@ const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
             <Dropdown.Item key={index} color="error" textColor="primary">
               <Link href={item.link}>
                 {item.title === 'Logout' ? (
-                  <Button onClick={() => signOut()}>
+                  <Button onClick={LogOutUser}>
                     <a className="flex gap-6 text-red-500">
                       {item.icon}
                       <Text className="text-sm text-red-500 ">

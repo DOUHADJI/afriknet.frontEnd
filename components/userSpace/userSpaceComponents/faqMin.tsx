@@ -46,7 +46,7 @@ const FaqMin: FunctionComponent = () => {
       </div>
       <div className="flex flex-col justify-center items-center gap-2 mt-6 ">
         <Text className="dark:text-white">
-          Vous n'avez pas trouvé la réponse à votre question ?
+          Vous n&apos;avez pas trouvé la réponse à votre question ?
         </Text>
         <Text className="flex gap-2 text-blue-500 items-center">
           <Link href="/faq"> Consultez notre FAQ.</Link>

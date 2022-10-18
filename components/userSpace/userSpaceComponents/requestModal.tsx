@@ -16,7 +16,7 @@ const RequestModal: FunctionComponent<{ show: boolean; setShowModal }> = ({
     >
       <Modal.Body>
         <Text b className="text-gray-500 text-md text-center dark:text-white">
-          Formulaire d'envoie d'une requête
+          Formulaire d&apos;envoie d&apos;une requête
         </Text>
         <div className="grid gap-3">
           <div className="grid gap-2">

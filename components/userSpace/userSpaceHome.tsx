@@ -33,7 +33,10 @@ const UserSpaceHome: FunctionComponent<{ user }> = ({ user }) => {
         show={requestModalOpen}
         setShowModal={setRequestModalOpen}
       />
-      <ComplaintModal show={ complaintModalOpen} setShowModal={setComplaintModalOpen} />
+      <ComplaintModal
+        show={complaintModalOpen}
+        setShowModal={setComplaintModalOpen}
+      />
     </>
   )
 }

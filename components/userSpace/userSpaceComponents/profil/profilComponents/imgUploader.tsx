@@ -16,6 +16,7 @@ const ImgUploader: FunctionComponent<{ user }> = ({ user }) => {
           src={user?.image}
           width={140}
           height={140}
+          alt="User Profil image"
           className="rounded-[40px] border-2 border-gray-500 dark:border-white"
         />
       </div>
