@@ -8,11 +8,11 @@ const SubscriptionCard: FunctionComponent<{
   isNew: boolean
 }> = ({ name, debit, price, isNew }) => {
   return (
-    <Card css={{ background : "#75756f" }} >
+    <Card css={{ background: '#75756f' }}>
       <Card.Header>
         <Col>
           {isNew ? <Badge>New </Badge> : null}
-          <div className='h-2'></div>
+          <div className="h-2"></div>
           <Text h3 className="text-white font-bold text-sm">
             {name}
           </Text>
@@ -20,7 +20,7 @@ const SubscriptionCard: FunctionComponent<{
       </Card.Header>
 
       <Card.Body>
-        <div className='h-4'></div>
+        <div className="h-4"></div>
       </Card.Body>
 
       <Card.Footer
@@ -38,13 +38,17 @@ const SubscriptionCard: FunctionComponent<{
             <Text color="#000" size={12} className="text-green-700/75">
               Available
             </Text>
-            <Text color="#000" size={12} className="font-semibold text-sm text-white">
+            <Text
+              color="#000"
+              size={12}
+              className="font-semibold text-sm text-white"
+            >
               {price} FCFA
             </Text>
           </Col>
           <Col>
             <Row justify="flex-end">
-              <Button flat auto rounded color="error">
+              <Button flat auto rounded color="error" type={null}>
                 <Text
                   css={{ color: 'inherit' }}
                   size={12}

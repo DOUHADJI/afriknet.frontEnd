@@ -5,10 +5,10 @@ import SubscriptionCard from './subscriptionComponents/subscriptionCard'
 const Subscriptions: FunctionComponent = () => {
   const subscriptions = [
     {
-        name: 'Smart',
-        debit: '25',
-        price: 12500,
-        isNew: false,
+      name: 'Smart',
+      debit: '25',
+      price: 12500,
+      isNew: false,
     },
 
     {
@@ -19,16 +19,18 @@ const Subscriptions: FunctionComponent = () => {
     },
 
     {
-        name: 'Blaze',
-        debit: '100',
-        price: 30000,
-        isNew: true,
-      },
+      name: 'Blaze',
+      debit: '100',
+      price: 30000,
+      isNew: true,
+    },
   ]
 
   return (
     <div className="shadow border bg-black/25 rounded-[12px]">
-      <Text className="font-bold text-center text-white mt-4">Nos abonnements</Text>
+      <Text className="font-bold text-center text-white mt-4">
+        Nos abonnements
+      </Text>
       <div className="grid grid-cols-2 p-8 gap-8">
         {subscriptions.map((item, index) => (
           <SubscriptionCard

@@ -35,6 +35,7 @@ const Services: FunctionComponent = () => {
       <div className="grid grid-cols-1 gap-6 h-full lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2">
         {services.map((item, index) => (
           <ServiceCard
+            key={index}
             title={item.title}
             description={item.description}
             imageUrl={item.imageUrl}

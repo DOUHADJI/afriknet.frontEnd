@@ -1,1 +1,1 @@
-export const appTitle = 'Afriknet'
+export const appTitle = 'Epi.net'

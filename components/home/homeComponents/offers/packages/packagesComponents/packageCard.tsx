@@ -8,18 +8,20 @@ const PackageCard: FunctionComponent<{
   isNew: boolean
 }> = ({ name, debit, price, isNew }) => {
   return (
-    <Card css={{ background : "#75756f" }}>
+    <Card css={{ background: '#75756f' }}>
       <Card.Header>
         <Col>
-          {isNew ? <Badge  color={"warning"}>New </Badge> : null}
-          <div className='h-2'></div>
+          {isNew ? <Badge color={'warning'}>New </Badge> : null}
+          <div className="h-2"></div>
           <Text h3 className="text-white font-bold text-sm">
             {name}
           </Text>
         </Col>
       </Card.Header>
 
-      <Card.Body><div className='h-4'></div></Card.Body>
+      <Card.Body>
+        <div className="h-4"></div>
+      </Card.Body>
 
       <Card.Footer
         isBlurred
@@ -36,13 +38,17 @@ const PackageCard: FunctionComponent<{
             <Text color="#000" size={12} className="text-green-700/75">
               Available
             </Text>
-            <Text color="#000" size={12} className="font-semibold text-sm text-white">
+            <Text
+              color="#000"
+              size={12}
+              className="font-semibold text-sm text-white"
+            >
               {price} FCFA
             </Text>
           </Col>
           <Col>
             <Row justify="flex-end">
-              <Button flat auto rounded color="secondary">
+              <Button flat auto rounded color="secondary" type={null}>
                 <Text
                   css={{ color: 'inherit' }}
                   size={12}
