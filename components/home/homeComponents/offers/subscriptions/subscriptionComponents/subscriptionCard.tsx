@@ -1,68 +1,35 @@
 import { Badge, Button, Card, Col, Row, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 
-const SubscriptionCard: FunctionComponent<{
-  name: string
-  debit: string
-  price: number
-  isNew: boolean
-}> = ({ name, debit, price, isNew }) => {
+const SubscriptionCard: FunctionComponent<{}> = ({}) => {
   return (
-    <Card css={{ background: '#75756f' }}>
-      <Card.Header>
-        <Col>
-          {isNew ? <Badge>New </Badge> : null}
-          <div className="h-2"></div>
-          <Text h3 className="text-white font-bold text-sm">
-            {name}
+    <div id="premiumCard" className="w-3/4 p-8 bg-white rounded-br-[80px]">
+      <Text className="font-extrabold text-center  mt-4 text-[2rem] italic uppercase md:">
+        Offre
+      </Text>
+      <Text className="font-extrabold text-center text-blue-500 mt-4 text-[3rem] italic uppercase">
+        premium
+      </Text>
+      <Text className="font-bold text-center text-blue-500 mt-12 text-[15px] italic  ">
+        La puissance version fibre
+      </Text>
+      <Text className="font-bold text-center text-blue-500  text-[15px] italic  ">
+        200 Mb/s* en illimité
+      </Text>
+      <div className="flex justify-center  gap-3 mt-16">
+        <Text className="font-extrabold text-center text-black text-[2rem] italic  ">
+          A
+        </Text>
+        <div className="flex items-end  ">
+          <Text className="font-bold text-center text-black text-[4rem]   ">
+            30 000
+            <span className="font-extrabold text-center text-black  text-[1rem] italic  ">
+              FCFA / mois
+            </span>
           </Text>
-        </Col>
-      </Card.Header>
-
-      <Card.Body>
-        <div className="h-4"></div>
-      </Card.Body>
-
-      <Card.Footer
-        isBlurred
-        css={{
-          position: 'absolute',
-          bgBlur: '#ffffff66',
-          borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
-          bottom: 0,
-          zIndex: 1,
-        }}
-      >
-        <Row>
-          <Col>
-            <Text color="#000" size={12} className="text-green-700/75">
-              Available
-            </Text>
-            <Text
-              color="#000"
-              size={12}
-              className="font-semibold text-sm text-white"
-            >
-              {price} FCFA
-            </Text>
-          </Col>
-          <Col>
-            <Row justify="flex-end">
-              <Button flat auto rounded color="error" type={null}>
-                <Text
-                  css={{ color: 'inherit' }}
-                  size={12}
-                  weight="bold"
-                  transform="uppercase"
-                >
-                  {debit} Mo/s
-                </Text>
-              </Button>
-            </Row>
-          </Col>
-        </Row>
-      </Card.Footer>
-    </Card>
+        </div>
+      </div>
+    </div>
   )
 }
 

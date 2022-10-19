@@ -6,6 +6,7 @@ import SignUp from '../signUp/signUp'
 import Banner from './homeComponents/banner'
 import MiddlePageBanner from './homeComponents/middlePageBanner'
 import Offers from './homeComponents/offers/offers'
+import Services from './homeComponents/services/services'
 
 const Home: FunctionComponent = () => {
   const [userWantSignIn, setUserWantSignIn] = useState(false)
@@ -18,9 +19,10 @@ const Home: FunctionComponent = () => {
         setUserWantSignUp={setUserWantSignUp}
       />
       <Banner />
+      <Offers />
       <MiddlePageBanner />
-      <div className="bg-[url('/images/ill_4.jpg')] bg-cover bg-center">
-        <Offers />
+      <div className="">
+        <Services />
         <Footer />
         <SignIn
           userWantSignIn={userWantSignIn}

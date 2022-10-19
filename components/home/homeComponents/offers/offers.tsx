@@ -4,8 +4,8 @@ import Subscriptions from './subscriptions/subscriptions'
 
 const Offers: FunctionComponent = () => {
   return (
-    <div className="bg-transparent p-8 dark:bg-gray-800/50">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <div className="">
+      <div className="grid grid-cols-1 min-h-screen md:grid-cols-2 min-h-screen">
         <Packages />
         <Subscriptions />
       </div>

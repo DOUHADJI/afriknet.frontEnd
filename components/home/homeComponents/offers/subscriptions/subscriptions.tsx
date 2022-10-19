@@ -3,44 +3,26 @@ import { FunctionComponent } from 'react'
 import SubscriptionCard from './subscriptionComponents/subscriptionCard'
 
 const Subscriptions: FunctionComponent = () => {
-  const subscriptions = [
-    {
-      name: 'Smart',
-      debit: '25',
-      price: 12500,
-      isNew: false,
-    },
-
-    {
-      name: 'Leonora',
-      debit: '50',
-      price: 15000,
-      isNew: false,
-    },
-
-    {
-      name: 'Blaze',
-      debit: '100',
-      price: 30000,
-      isNew: true,
-    },
-  ]
+  const rotateChild = () => {
+    document.getElementById('premiumCard').className =
+      'w-3/4 p-8 bg-white rounded-br-[80px] -rotate-6'
+  }
+  const unrotateChild = () => {
+    document.getElementById('premiumCard').className =
+      'w-3/4 p-8 bg-white rounded-br-[80px]'
+  }
 
   return (
-    <div className="shadow border bg-black/25 rounded-[12px]">
-      <Text className="font-bold text-center text-white mt-4">
-        Nos abonnements
-      </Text>
-      <div className="grid grid-cols-2 p-8 gap-8">
-        {subscriptions.map((item, index) => (
-          <SubscriptionCard
-            key={index}
-            name={item.name}
-            debit={item.debit}
-            price={item.price}
-            isNew={item.isNew}
-          />
-        ))}
+    <div className="bg-purple-900 py-12 ">
+      <div className="flex items-center justify-center w-full h-full relative">
+        <div
+          className="w-full h-full absolute z-20 "
+          onMouseEnter={rotateChild}
+          onMouseOut={unrotateChild}
+        >
+          {''}
+        </div>
+        <SubscriptionCard />
       </div>
     </div>
   )

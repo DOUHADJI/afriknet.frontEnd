@@ -7,7 +7,7 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
   children,
 }) => {
   return (
-    <div className=" min-h-screen flex flex-col place-content-between">
+    <div className=" min-h-screen flex flex-col place-content-between bg-[url('/images/bg-light.jpg')] bg-cover dark:bg-[url('/images/bg-dark.jpg')] bg-cover ">
       <UserNavbar userName={user?.name} userImage={user?.image} />
       <div className=" h-full">{children}</div>
       <Footer />

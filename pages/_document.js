@@ -15,7 +15,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>{CssBaseline.flush()}</Head>
-        <body className='bg-[url("/images/bg-light.png")] bg-cover dark:bg-[url("/images/bg-dark.png")] bg-cover '>
+        <body className="">
           <Main />
           <NextScript />
         </body>

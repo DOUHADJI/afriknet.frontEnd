@@ -8,7 +8,7 @@ const Services: FunctionComponent = () => {
       title: 'Dans vos entreprises',
       description:
         'Profitez du wifi à haut débit et restez connectés au monde depuis votre bureau',
-      imageUrl: '/images/01.jpg',
+      imageUrl: '/images/services-bg.jpg',
     },
 
     {
@@ -27,20 +27,24 @@ const Services: FunctionComponent = () => {
   ]
 
   return (
-    <div className="h-full bg-[url('/images/ill_7.png')] bg-cover bg-center ">
-      <Text className="text-center text-gray-700 text-lg font-bold pt-5">
-        Disposez de nos offres partout où vous êtes !
-      </Text>
+    <div className="h-full bg-gray-200 dark:bg-zinc-900">
+      <div className="flex items-center justify-center ">
+        <Text className="text-center text-black text-[30px] font-light pt-5 w-1/2  dark:text-white">
+          Disposez de nos offres partout où vous êtes !
+        </Text>
+      </div>
 
-      <div className="grid grid-cols-1 gap-6 h-full lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2">
-        {services.map((item, index) => (
-          <ServiceCard
-            key={index}
-            title={item.title}
-            description={item.description}
-            imageUrl={item.imageUrl}
-          />
-        ))}
+      <div className="flex items-center justify-center w-full p-12">
+        <div className="grid grid-cols-1 gap-6 w-4/5 justify-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2">
+          {services.map((item, index) => (
+            <ServiceCard
+              key={index}
+              title={item.title}
+              description={item.description}
+              imageUrl={item.imageUrl}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

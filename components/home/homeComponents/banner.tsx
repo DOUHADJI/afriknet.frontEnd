@@ -7,26 +7,26 @@ const Banner: FunctionComponent = () => {
   const affirmations = [
     {
       text: "Vivez l'internet autrement",
-      image: "bg-[url('/images/aff_1.jpg')]",
+      bgColor: 'bg-yellow-500',
     },
     {
       text: 'Une connexion de bonne qualité',
-      image: "bg-[url('/images/aff_2.jpg')]",
+      bgColor: 'bg-blue-700',
     },
     {
       text: 'Naviguez en toute tranquilité',
-      image: "bg-[url('/images/aff_3.jpg')]",
+      bgColor: 'bg-green-700',
     },
   ]
   return (
-    <div className="h-max -mt-[45px]">
-      <div className="h-[31rem] bg-[url('/images/banner.jpg')] bg-center bg-cover">
+    <div className=" -mt-[45px]">
+      <div className="h-screen bg-[url('/images/banner-bg-2.jpg')] bg-center bg-cover">
         <div className="flex h-full items-end pl-12 pb-12 ">
           <div className="flex">
-            {affirmations.map((item, index) => (
+            {/*  {affirmations.map((item, index) => (
               <div
                 key={index}
-                className={`rounded-full h-28 w-28 ${item.image} bg-center bg-cover border  -mr-6 sm:h-40 w-40 `}
+                className={`rounded-full h-28 w-28  border  -mr-6 sm:h-40 w-40 ${item.bgColor} `}
               >
                 <div className="rounded-full h-28 w-28  bg-slate-800/50 flex justify-center items-center sm:h-40 w-40">
                   <Text className="text-gray-100 font-bold text-center p-5 text-md ">
@@ -34,11 +34,10 @@ const Banner: FunctionComponent = () => {
                   </Text>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
-      <Services />
     </div>
   )
 }
