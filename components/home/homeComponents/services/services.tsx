@@ -27,10 +27,10 @@ const Services: FunctionComponent = () => {
   ]
 
   return (
-    <div className="h-full bg-gray-200 dark:bg-zinc-900">
+    <div className="h-full bg-white ">
       <div className="flex items-center justify-center ">
-        <Text className="text-center text-black text-[30px] font-light pt-5 w-1/2  dark:text-white">
-          Disposez de nos offres partout où vous êtes !
+        <Text className="text-center text-black text-[30px] font-bold pt-5 w-2/3  dark:text-white">
+          Vivez une nouvelle expérience avec la fibre
         </Text>
       </div>
 

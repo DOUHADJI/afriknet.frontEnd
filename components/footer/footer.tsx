@@ -5,13 +5,13 @@ import { appTitle } from '../const'
 
 const Footer: FunctionComponent = () => {
   return (
-    <div className="bg-gray-100/50 py-8 px-4 dark:bg-slate-700/50">
+    <div className="bg-black py-8 px-4">
       <div className="flex"></div>
       <div>
-        <Text className="text-gray-600 text-xs font-light text-center dark:text-gray-300">
+        <Text className="text-white text-xs font-light text-center ">
           created by
         </Text>
-        <Text className="text-gray-600 text-sm font-light text-center dark:text-gray-300">
+        <Text className="text-white text-sm font-light text-center ">
           - AMEVI GREGOIRE DOUHADJI -
         </Text>
       </div>
@@ -33,7 +33,7 @@ const Footer: FunctionComponent = () => {
         </Link>
       </div>
       <div className="mt-4">
-        <Text className="text-gray-600 text-xs font-light text-center dark:text-gray-300">
+        <Text className="text-white text-xs font-light text-center ">
           - all rights reserved -
         </Text>
       </div>

@@ -22,7 +22,7 @@ const Home: FunctionComponent = () => {
       <Offers />
       <MiddlePageBanner />
       <div className="">
-        <Services />
+        {/* <Services /> */}
         <Footer />
         <SignIn
           userWantSignIn={userWantSignIn}

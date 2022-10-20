@@ -1,5 +1,6 @@
 import { Badge, Button, Card, Col, Row, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
+import StartOfferAssertions from './startOfferAssertions'
 
 const PackageCard: FunctionComponent<{}> = ({}) => {
   return (

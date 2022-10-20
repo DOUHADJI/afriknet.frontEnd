@@ -1,6 +1,7 @@
 import { Text } from '@nextui-org/react'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useState } from 'react'
 import PackageCard from './packagesComponents/packageCard'
+import StartOfferAssertions from './packagesComponents/startOfferAssertions'
 
 const Packages: FunctionComponent = () => {
   const rotateChild = () => {
