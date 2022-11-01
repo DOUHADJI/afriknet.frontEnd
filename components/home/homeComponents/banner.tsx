@@ -29,7 +29,7 @@ const Banner: FunctionComponent = () => {
               On augmente la vitesse de nos offres !!!
             </p>
             <h1 className="my-4 text-5xl font-bold leading-tight">
-              Vivez l'internet autrement
+              Vivez l&apos;internet autrement
             </h1>
             <p className="leading-normal text-2xl mb-8">
               Naviguez en toute tranquilité
@@ -40,7 +40,7 @@ const Banner: FunctionComponent = () => {
           </div>
           {/* <!--Right Col--> */}
           <div className="w-full md:w-3/5 py-6 text-center">
-            <img className="w-full md:w-4/5 z-50" src="/images/banner_2.svg" />
+            <Image className="w-full md:w-4/5 z-50" width={60} height={50} alt='banner image' src="/images/banner_2.svg" />
           </div>
         </div>
       </div>

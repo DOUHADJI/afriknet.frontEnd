@@ -6,7 +6,7 @@ export function StartOffer() {
           Start
         </div>
         <ul className="w-full text-center text-sm">
-          <li className="border-b py-4">J'entre dans l'univers de la page</li>
+          <li className="border-b py-4">J&apos;entre dans l&apos;univers de la page</li>
           <li className="border-b py-4">Thing</li>
           <li className="border-b py-4">Thing</li>
         </ul>

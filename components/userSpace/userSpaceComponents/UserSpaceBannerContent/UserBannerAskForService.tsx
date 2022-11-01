@@ -12,7 +12,7 @@ const UserBannerAskForService: FunctionComponent = () => {
         auto
         type={null}
       >
-        Souscrire à l'offre Start
+        Souscrire à l&apos;offre Start
       </Button>
 
       <Button
@@ -22,7 +22,17 @@ const UserBannerAskForService: FunctionComponent = () => {
         auto
         type={null}
       >
-        Souscrire à l'offre Premium
+        Souscrire à l&apos;offre Standard
+      </Button>
+
+      <Button
+        icon={<BsFillPlusSquareFill />}
+        color={'warning'}
+        flat
+        auto
+        type={null}
+      >
+        Souscrire à l&apos;offre Premium
       </Button>
     </div>
   )
