@@ -5,11 +5,8 @@ import UpdateProfilInformations from './profilComponents/updateProfilInformation
 const UserSpaceProfil: FunctionComponent<{ user }> = ({ user }) => {
   const [visible, setVisible] = useState(false)
 
-  const handleUpdateFormVisibility = () => {
-    visible == false ? setVisible(true) : null
-  }
   return (
-    <div className="flex items-center align-center w-full my-4 ">
+    <div className="flex items-center align-center w-full p-[4vw]">
       {visible == true ? (
         <UpdateProfilInformations user={user} hideUpdateForm={setVisible} />
       ) : (

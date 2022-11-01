@@ -7,9 +7,8 @@ import {
   BsFillHouseFill,
   BsFillPersonFill,
   BsQuestionCircleFill,
+  BsTable,
 } from 'react-icons/bs'
-import { userAgent } from 'next/server'
-import { useRouter } from 'next/router'
 
 const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
   const LogOutUser = () => {
@@ -17,15 +16,21 @@ const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
   }
   const MenuItems = [
     {
-      title: 'Accueil',
+      title: "Page d'accueil",
       link: '/userHome',
       icon: <BsFillHouseFill size={18} />,
     },
 
     {
-      title: 'Profil',
+      title: 'Votre profil',
       link: '/profil',
       icon: <BsFillPersonFill size={18} />,
+    },
+
+    {
+      title: 'Historique de vos abonnements',
+      link: '/historique_de_vos_abonnements',
+      icon: <BsTable size={18} />,
     },
 
     {

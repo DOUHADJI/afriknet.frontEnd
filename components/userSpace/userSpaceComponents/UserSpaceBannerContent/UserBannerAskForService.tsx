@@ -4,16 +4,15 @@ import { BsFillPlusSquareFill } from 'react-icons/bs'
 
 const UserBannerAskForService: FunctionComponent = () => {
   return (
-    <div className="flex flex-wrap gap-8 justify-around bg-gray-900/75 p-3">
+    <div className="flex flex-wrap gap-8 justify-around py-4 ">
       <Button
         icon={<BsFillPlusSquareFill />}
         color={'warning'}
         flat
         auto
-        size={'lg'}
         type={null}
       >
-        Souscrire à un forfait
+        Souscrire à l'offre Start
       </Button>
 
       <Button
@@ -21,10 +20,9 @@ const UserBannerAskForService: FunctionComponent = () => {
         color={'warning'}
         flat
         auto
-        size={'lg'}
         type={null}
       >
-        Souscrire à un abonnement
+        Souscrire à l'offre Premium
       </Button>
     </div>
   )

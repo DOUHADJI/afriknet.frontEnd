@@ -18,12 +18,15 @@ const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
   const getUserInformations = () => {}
 
   return (
-    <div className="flex flex-col items-center justify-center w-full ">
-      <Text b className="text-gray-500 text-center  dark:text-white">
-        Mettre profil à jour{' '}
-      </Text>
-      <Card className="mt-6 w-3/4 p-4 dark:bg-gray-900 dark:border-gray-700 ">
-        <Card.Body>
+    <div className="w-screen ">
+      <div className="flex  items-center justify-center ">
+        <Text b className="text-gray-500 text-center  dark:text-white">
+          Mettre profil à jour{' '}
+        </Text>
+      </div>
+
+      <div className="mt-6 w-full rounded-[20px]  p-4 dark:bg-zinc-900 dark:border-gray-700 ">
+        <div>
           <Grid.Container gap={2}>
             <Grid sm={4} className="w-full">
               <ImgUploader user={user} />
@@ -124,25 +127,24 @@ const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
               </div>
             </Grid>
           </Grid.Container>
-        </Card.Body>
-      </Card>
-      <div className="flex justify-end items-center mt-4 w-3/4 gap-4">
+        </div>
+      </div>
+      <div className="flex justify-end items-center mt-4 w-full gap-4">
         <Button
           auto
-          flat
           type={null}
-          className="bg-red-500/75 text-white dark:bg-slate-700 text-gray-300"
+          className="bg-red-500 text-white dark:bg-slate-800 text-gray-300"
           onClick={() => hideUpdateForm(false)}
         >
-          Annuler
+          <p className="text-white">Annuler</p>
         </Button>
         <Button
           auto
           flat
           type={null}
-          className="bg-green-500/75 text-white dark:bg-slate-900 text-gray-300"
+          className="bg-green-500 text-white dark:bg-slate-900 text-gray-300"
         >
-          Enregistrer
+          <p className="text-white">Enregistrer</p>
         </Button>
       </div>
     </div>

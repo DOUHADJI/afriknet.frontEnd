@@ -9,12 +9,35 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
 
+    /*  GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }), */
+
+    /*  EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: process.env.EMAIL_SERVER_PORT,
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD
+        }
+      },
+      from: process.env.EMAIL_FROM
+    }), */
+
     // ...add more providers here
   ],
 
-  secret: process.env.SECRET
+  pages: {
+    signIn: '/signin',
+    /* signOut: '/auth/signout', */
+    /* error: '/auth/error', // Error code passed in query string as ?error=
+    verifyRequest: '/auth/verify-request', // (used for check email message) */
+    newUser: '/userHome', // New users will be directed here on first sign in (leave the property out if not of interest)
+  },
 
-  
+  secret: process.env.SECRET,
 }
 
 export default NextAuth(authOptions)

@@ -9,14 +9,14 @@ const UserSpaceBanner: FunctionComponent<{
   setShowComplaintModal
 }> = ({ user, setShowRequestModal, setShowComplaintModal }) => {
   return (
-    <div className="flex flex-col items-center  bg-[url('/images/aff_2.jpg')] bg-center bg-cover bg-fixed pb-[40px] ">
-      <div className="flex items-center justify-center h-12 w-11/12 bg-gray-500 dark:bg-slate-800">
-        <p className="text-center text-sm font-bold  ">
+    <div className="flex flex-col items-center py-[3vw] sm:p-[1vw]  ">
+      <div className="flex items-center justify-center py-4 w-11/12  rounded-[20px] bg-gray-400  dark:bg-zinc-700">
+        <p className="text-center text-sm font-bold ">
           Bienvenue dans votre espace client {appTitle}
         </p>
       </div>
 
-      <div className="mt-4 p-8 w-11/12 h-fit ">
+      <div className="mt-4 p-8 w-11/12 h-full ">
         <UserBannerInfos
           user={user}
           setShowRequestModal={setShowRequestModal}

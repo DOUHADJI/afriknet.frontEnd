@@ -17,21 +17,13 @@ const UserBannerContent: FunctionComponent<{
   }
 
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 bg-green-700/50 h-full p-12">
+    <div className="flex flex-wrap justify-center gap-12 rounded-[20px] bg-gray-400 dark:bg-zinc-800 h-full p-8 sm:grid-cols-2">
       <div className="flex flex-col items-center justify-center gap-12 h-full ">
-        <Text b color="white" size={17} className="text-center">
-          <span className="uppercase">
-            code d&apos;identification client :{' '}
-          </span>
-          <span> {user.code ? user.code : 'userCode here'} </span>
-        </Text>
-
         <div className="flex flex-wrap justify-around gap-6">
           <Button
             icon={<BsCursorFill />}
-            color={'secondary'}
             auto
-            size={'lg'}
+            color={'secondary'}
             type={null}
             onPress={() => setShowRequestModal(true)}
           >
@@ -42,7 +34,6 @@ const UserBannerContent: FunctionComponent<{
             icon={<BsSignal />}
             color={'error'}
             auto
-            size={'lg'}
             type={null}
             onPress={() => setShowComplaintModal(true)}
           >
@@ -52,27 +43,19 @@ const UserBannerContent: FunctionComponent<{
       </div>
 
       <div className="flex flex-col  justify-center gap-3 h-full ">
-        <Text color="white" size={13}>
-          <span className="uppercase">NOM : </span>
-          <span> {user.name} </span>
+        <Text b color="white" size={17} className="text-center">
+          <span className="uppercase">
+            code d&apos;identification client :{' '}
+          </span>
+          <span> {user.code ? user.code : 'userCode here'} </span>
         </Text>
-
-        <Text color="white" size={13}>
-          <span className="uppercase">PAYS : </span>
-          <span> UserName </span>
-        </Text>
-        <Text color="white" size={13}>
-          <span className="uppercase">VILLE : </span>
-          <span> UserName </span>
-        </Text>
-        <Text color="white" size={13}>
-          <span className="uppercase">CONTACT : </span>
-          <span> UserName </span>
-        </Text>
-        <Text color="white" size={13}>
-          <span className="uppercase">EMAIL : </span>
-          <span> {user.email} </span>
-        </Text>
+        <div className="flex  items-center justify-center bg-gray-500  dark:bg-zinc-700 rounded-[20px]   h-32 ">
+          <Text b color="white" size={14} className="text-center p-5">
+            <span className="text-gray-100 dark:text-white">
+              Vous n&apos;avez aucun abonnement en cours...
+            </span>
+          </Text>
+        </div>
       </div>
     </div>
   )

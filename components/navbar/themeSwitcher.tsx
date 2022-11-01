@@ -8,11 +8,10 @@ const ThemeSwitcher = () => {
   return (
     <div>
       <Switch
-        shadow
-        color={'secondary'}
+        color={'warning'}
         onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
-        iconOn={<BsMoon />}
-        iconOff={<BsSun />}
+        iconOn={<BsMoon className="dark:text-black" />}
+        iconOff={<BsSun className="text-black" />}
       />
     </div>
   )

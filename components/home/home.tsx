@@ -13,16 +13,13 @@ const Home: FunctionComponent = () => {
   const [userWantSignUp, setUserWantSignUp] = useState(false)
 
   return (
-    <div className="relative">
-      <MyNavbar
-        setUserWantSignIn={setUserWantSignIn}
-        setUserWantSignUp={setUserWantSignUp}
-      />
+    <div className="leading-normal tracking-normal text-white gradient">
+      <MyNavbar setUserWantSignIn={setUserWantSignIn} />
       <Banner />
+      <Services />
       <Offers />
       <MiddlePageBanner />
       <div className="">
-        {/* <Services /> */}
         <Footer />
         <SignIn
           userWantSignIn={userWantSignIn}

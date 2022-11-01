@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind utilities;
-.n-button {
-  background-color: 'red';
+@tailwind components;
+
+.gradient {
+  background: linear-gradient(90deg, #04023f 0%, #024c21 100%);
 }
 
-@tailwind components;
+.SignInBackground {
+  background: linear-gradient(90deg, #cbcbcf 0%, #ffffff 100%);
+}
+
+.NavbarGradient {
+  background: linear-gradient(90deg, #04023f 0%, #024c21 100%);
+}

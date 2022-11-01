@@ -24,9 +24,9 @@ const FaqPage: FunctionComponent = () => {
   ]
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100/25 py-10 w-full h-full dark:bg-slate-900 ">
+    <div className="flex flex-col items-center justify-center  py-10 w-full h-full rounded-[20px]">
       <div className=" rounded-[16px] px-10 w-full h-full">
-        <Collapse.Group bordered className="bg-gray-100 dark:bg-slate-800">
+        <Collapse.Group bordered className="bg-gray-100 dark:bg-zinc-900">
           {collaspes.map((item, index) => (
             <Collapse
               key={index}

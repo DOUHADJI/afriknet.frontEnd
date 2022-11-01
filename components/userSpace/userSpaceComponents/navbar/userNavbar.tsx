@@ -12,26 +12,29 @@ const UserNavbar: FunctionComponent<{ userName; userImage }> = ({
   userImage,
 }) => {
   return (
-    <Navbar className="bg-yellow-900 dark:bg-zinc-900" color="primary">
-      <Navbar.Brand>
-        <Text b className="text-gray-600 dark:text-slate-400">
+    <div className="flex justify-between px-12 py-5 w-full bg-zinc-300 dark:bg-zinc-800 ">
+      <div>
+        <Text b className="text-zinc-800 dark:text-white">
           {appTitle}
         </Text>
-      </Navbar.Brand>
-      <Navbar.Content>
-        <Navbar.Item>
+      </div>
+      <div className="flex items-center gap-6">
+        <div>
           <ThemeSwitcher />
-        </Navbar.Item>
-        <Navbar.Item>
-          <div className="flex gap-2 items-center pl-5 w-fit  border-l-2">
-            <Text b className="text-sm text-gray-600 dark:text-white">
+        </div>
+        <div>
+          <div className="flex gap-2 items-center pl-5 w-fit  xs:border-l-2">
+            <Text
+              b
+              className="text-[0px] sm:text-[0.8rem] md:text-sm md:text-gray-600 dark:text-white"
+            >
               {userName}
             </Text>
             <UserMenu userImage={userImage} />
           </div>
-        </Navbar.Item>
-      </Navbar.Content>
-    </Navbar>
+        </div>
+      </div>
+    </div>
   )
 }
 

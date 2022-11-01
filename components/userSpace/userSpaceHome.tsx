@@ -7,28 +7,19 @@ import RequestModal from './userSpaceComponents/requestModal'
 import UserCurrentPayedServices from './userSpaceComponents/userCurrentPayedService'
 import UserSubscriptionsAndPackagesList from './userSpaceComponents/userSbcrtionsAndPckge'
 import UserSpaceBanner from './userSpaceComponents/userSpaceBanner'
+import UserSpaceLayout from './userSpaceLayout'
 
 const UserSpaceHome: FunctionComponent<{ user }> = ({ user }) => {
   const [requestModalOpen, setRequestModalOpen] = useState(false)
   const [complaintModalOpen, setComplaintModalOpen] = useState(false)
 
-  const handleRequestModal = () => {
-    requestModalOpen == false
-      ? setRequestModalOpen(true)
-      : setRequestModalOpen(false)
-  }
   return (
-    <>
-      <UserNavbar userName={user.name} userImage={user.image} />
+    <UserSpaceLayout user={user}>
       <UserSpaceBanner
         user={user}
         setShowRequestModal={setRequestModalOpen}
         setShowComplaintModal={setComplaintModalOpen}
       />
-      <UserCurrentPayedServices />
-      <UserSubscriptionsAndPackagesList />
-      <FaqMin />
-      <Footer />
       <RequestModal
         show={requestModalOpen}
         setShowModal={setRequestModalOpen}
@@ -37,7 +28,7 @@ const UserSpaceHome: FunctionComponent<{ user }> = ({ user }) => {
         show={complaintModalOpen}
         setShowModal={setComplaintModalOpen}
       />
-    </>
+    </UserSpaceLayout>
   )
 }
 
