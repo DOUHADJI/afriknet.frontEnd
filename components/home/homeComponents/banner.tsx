@@ -40,7 +40,7 @@ const Banner: FunctionComponent = () => {
           </div>
           {/* <!--Right Col--> */}
           <div className="w-full md:w-3/5 py-6 text-center">
-            <Image className="w-full md:w-4/5 z-50" width={60} height={50} alt='banner image' src="/images/banner_2.svg" />
+            <Image className="w-full md:w-4/5 z-50" width={420} height={350} alt='banner image' src="/images/banner_2.svg" />
           </div>
         </div>
       </div>
