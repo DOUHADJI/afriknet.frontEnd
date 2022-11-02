@@ -5,7 +5,7 @@ import { appTitle } from '../const'
 
 const Footer: FunctionComponent = () => {
   return (
-    <div className=" pt-8 px-4">
+    <div className=" pt-8 px-4 pb-6">
       <div className="flex"></div>
       <div>
         <Text className="text-white text-xs font-light text-center ">

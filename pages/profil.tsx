@@ -10,13 +10,13 @@ const Profil: FunctionComponent<{}> = ({}) => {
 
   const user = session?.user
 
-  if(session){
+  if (session) {
     return (
       <UserSpaceLayout user={user}>
         <UserSpaceProfil user={user} />
       </UserSpaceLayout>
     )
-  }else{
+  } else {
     return (
       <div>
         <SignInPage
@@ -29,8 +29,6 @@ const Profil: FunctionComponent<{}> = ({}) => {
       </div>
     )
   }
-
- 
 }
 
 export default Profil

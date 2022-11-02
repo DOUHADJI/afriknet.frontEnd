@@ -9,13 +9,13 @@ const Faq: FunctionComponent = () => {
   const { data: session } = useSession()
   const user = session?.user
 
-  if(session){
+  if (session) {
     return (
       <UserSpaceLayout user={user}>
         <FaqPage />
       </UserSpaceLayout>
     )
-  }else{
+  } else {
     return (
       <div>
         <SignInPage
@@ -28,8 +28,6 @@ const Faq: FunctionComponent = () => {
       </div>
     )
   }
-
- 
 }
 
 export default Faq
