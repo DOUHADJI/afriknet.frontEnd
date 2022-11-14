@@ -1,24 +1,9 @@
-import {
-  Button,
-  Checkbox,
-  Grid,
-  Input,
-  Modal,
-  Row,
-  Text,
-} from '@nextui-org/react'
+import { Button, Checkbox, Input, Modal, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent } from 'react'
-import {
-  BsFillFileLockFill,
-  BsGithub,
-  BsPersonFill,
-  BsFillArrowRightCircleFill,
-  BsLinkedin,
-} from 'react-icons/bs'
+import { BsFillFileLockFill, BsGithub, BsPersonFill } from 'react-icons/bs'
 import { appTitle } from '../const'
-import { getProviders, signIn } from 'next-auth/react'
-import { FcGoogle } from 'react-icons/fc'
+import Link from 'next/link'
 
 const SignInPage: FunctionComponent<{
   isBlur: boolean
@@ -33,13 +18,9 @@ const SignInPage: FunctionComponent<{
   preventClose,
   closeButton,
 }) => {
-  console.log(getProviders())
   const route = useRouter()
 
-  const logUser = () => {
-    route.push('/api/auth/signin')
-    signIn()
-  }
+  const logUser = () => {}
   return (
     <Modal
       open={userWantSignIn}
@@ -78,7 +59,7 @@ const SignInPage: FunctionComponent<{
           aria-label="email input"
         />
 
-        <Input
+        <Input.Password
           clearable
           bordered
           fullWidth
@@ -89,19 +70,33 @@ const SignInPage: FunctionComponent<{
           aria-label="pass input"
         />
 
+        <div className="flex justify-between ">
+          <Checkbox
+            title="remember  me"
+            label="remember me"
+            size="sm"
+            name="remember_me"
+          />
+          <Link href={'#'}>Forgot your password ?</Link>
+        </div>
+
         <Button auto color="success" onPress={logUser} type={null}>
           Se connecter
         </Button>
+
+        <div className="flex justify-center ">
+          <Link href={'/signUp'}>Don't have an account ? Sign Up</Link>
+        </div>
 
         <div>
           <hr />
         </div>
 
-        <Button
+        {/*   <Button
           type={null}
           className="bg-zinc-900 mt-12"
           size={'xl'}
-          onClick={() => signIn('github', { callbackUrl: '/userHome' })}
+          onClick={logUser}
         >
           <div className="flex items-center  text-md">
             <span className="mx-3 text-[1.3rem]">
@@ -109,7 +104,7 @@ const SignInPage: FunctionComponent<{
             </span>
             <p className="text-extrabold text-[1rem]">Sign In with Github</p>
           </div>
-        </Button>
+        </Button> */}
       </Modal.Body>
     </Modal>
   )

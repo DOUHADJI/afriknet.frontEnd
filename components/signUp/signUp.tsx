@@ -1,32 +1,65 @@
-import {
-  Button,
-  Checkbox,
-  Grid,
-  Input,
-  Modal,
-  Row,
-  Text,
-} from '@nextui-org/react'
-import { FunctionComponent } from 'react'
-import {
-  BsFillFileLockFill,
-  BsMailbox,
-  BsMailbox2,
-  BsPersonFill,
-  BsVoicemail,
-} from 'react-icons/bs'
-import { appTitle } from '../const'
+import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { useRouter } from 'next/router'
+import { FunctionComponent, useState } from 'react'
+import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
+import { appTitle, getCookieValue, getCsrfToken, postWithAxios } from '../const'
 
-const SignUp: FunctionComponent<{
-  userWantSignUp: boolean
-  setUserWantSignUp
-}> = ({ userWantSignUp, setUserWantSignUp }) => {
+const SignUpPage: FunctionComponent = () => {
+  const router = useRouter()
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmedPassword, setConfirmedPassword] = useState('')
+  const [error, setError] = useState<any>({})
+
+  const getName = (e) => {
+    const name = e.target.value
+    setName(name)
+  }
+
+  const getEmail = (e) => {
+    const email = e.target.value
+    setEmail(email)
+  }
+
+  const getPassword = (e) => {
+    const name = e.target.value
+    setPassword(name)
+  }
+
+  const getConfirmedPassword = (e) => {
+    const confirmedPassword = e.target.value
+    setConfirmedPassword(confirmedPassword)
+  }
+
+  const registerNewUser = async () => {
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: confirmedPassword,
+    }
+
+    getCsrfToken()
+
+    const token = getCookieValue('XSRF-TOKEN')
+
+    const res = await postWithAxios('/api/register', user, token)
+
+    res.errors ? setError(res.errors) : null
+  }
+
+  const redirectToHomePage = () => {
+    router.push('/')
+  }
+
   return (
     <Modal
-      open={userWantSignUp}
+      open={true}
       closeButton
-      onClose={() => setUserWantSignUp(false)}
-      css={{ background: '#968f41' }}
+      onClose={redirectToHomePage}
+      className="SignInBackground"
     >
       <Modal.Header>
         <Text id="modal-title" size={18} color={'#FFFFFF'}>
@@ -37,78 +70,79 @@ const SignUp: FunctionComponent<{
         </Text>
       </Modal.Header>
       <Modal.Body>
+        <Text id="modal-title" size={18} color={'#FFFFFF'}>
+          Sign In with email
+        </Text>
+
         <Input
           clearable
           bordered
           fullWidth
-          color="default"
           size="lg"
-          placeholder="username"
+          helperColor={error.name ? 'error' : null}
+          helperText={error.name ? error.name : null}
+          placeholder="Nom d'utilisateur"
           contentLeft={<BsPersonFill />}
           css={{
             color: '#dbdad2',
             text: 'bold',
             textDecorationColor: '#dbdad2',
           }}
+          aria-label="name input"
+          onChange={getName}
+          value={name}
         />
+
         <Input
           clearable
           bordered
           fullWidth
-          color="default"
           size="lg"
-          placeholder="email"
-          contentLeft={<BsMailbox2 />}
+          placeholder="Email"
+          contentLeft={<BsPersonFill />}
           css={{
             color: '#dbdad2',
             text: 'bold',
             textDecorationColor: '#dbdad2',
           }}
+          aria-label="email input"
+          onChange={getEmail}
+          value={email}
         />
-        <Input
+
+        <Input.Password
           clearable
           bordered
           fullWidth
-          color="default"
           size="lg"
-          placeholder="password"
+          placeholder="Password"
           contentLeft={<BsFillFileLockFill />}
+          aria-label="pass input"
+          onChange={getPassword}
+          value={password}
         />
-        <Input
+
+        <Input.Password
           clearable
           bordered
           fullWidth
-          color="default"
           size="lg"
-          placeholder="confirm password"
+          placeholder="Confirm password"
           contentLeft={<BsFillFileLockFill />}
+          aria-label="pass input"
+          onChange={getConfirmedPassword}
+          value={confirmedPassword}
         />
-        <Row justify="space-between">
-          <Checkbox>
-            <Text size={14} color="white">
-              Remember me
-            </Text>
-          </Checkbox>
-          <Text size={14} color="white">
-            Forgot password?
-          </Text>
-        </Row>
+
+        <Button auto color="success" onPress={registerNewUser} type={null}>
+          S'enregistrer
+        </Button>
+
+        <div>
+          <hr />
+        </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button
-          flat
-          auto
-          color="error"
-          onClick={() => setUserWantSignUp(false)}
-          css={{ background: '#ef3b6e' }}
-        >
-          Close
-        </Button>
-        <Button auto color="success" onClick={() => console.log('clicked')}>
-          Sign in
-        </Button>
-      </Modal.Footer>
     </Modal>
   )
 }
-export default SignUp
+export default SignUpPage

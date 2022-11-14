@@ -1,11 +1,7 @@
 import { Button, Navbar, Text, Link } from '@nextui-org/react'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/router'
 import { FunctionComponent, useState, useEffect } from 'react'
 import { BsHddNetwork } from 'react-icons/bs'
-import { appTitle } from '../const'
-import LangSwitcher from './langSwitcher'
-import ThemeSwitcher from './themeSwitcher'
+import { appTitle, getCsrfToken, getWithAxios } from '../const'
 
 const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
   setUserWantSignIn,
@@ -14,36 +10,6 @@ const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
     { title: 'Nos offres', href: '#' },
     { title: 'Qui sommes nous ?', href: '#' },
   ]
-  const router = useRouter()
-
-  const [csrf, setCsrf] = useState()
-
-  const axios = require('axios')
-
-  const http = axios.create({
-    baseURL: 'http://127.0.0.1:8000/',
-    /*  timeout: 1000, */
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
-    withCredentials: true,
-  })
-
-  const getCsrf = async () => {
-    const r = await http.get('/sanctum/csrf-cookie')
-    setCsrf(r)
-  }
-
-  const goToSignInPage = () => {
-    getCsrf()
-    signIn()
-  }
-
-  /* useEffect( () => {
-    getCsrf()
-
-    console.log(csrf)
-  }, []) */
 
   return (
     <nav

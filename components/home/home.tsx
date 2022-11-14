@@ -2,7 +2,6 @@ import { FunctionComponent, useState } from 'react'
 import Footer from '../footer/footer'
 import MyNavbar from '../navbar/navbar'
 import SignIn from '../signIn/signIn'
-import SignUp from '../signUp/signUp'
 import Banner from './homeComponents/banner'
 import MiddlePageBanner from './homeComponents/middlePageBanner'
 import Offers from './homeComponents/offers/offers'
@@ -27,10 +26,6 @@ const Home: FunctionComponent = () => {
           isBlur={false}
           closeButton={true}
           preventClose={true}
-        />
-        <SignUp
-          userWantSignUp={userWantSignUp}
-          setUserWantSignUp={setUserWantSignUp}
         />
       </div>
     </div>
