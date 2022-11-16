@@ -11,7 +11,7 @@ const ServiceCard: FunctionComponent<{
       <div className="flex flex-col items-start justify-end h-full p-4 pb-10 m-2">
         <div className="border border-2 border-black  p-2 dark:border-white">
           <p className=" text-center font-semibold text-black text-sm dark:text-white">
-            {title}
+            {title} here
             <span className="bi bi-emoji-wink fs-5"></span>
           </p>
         </div>
