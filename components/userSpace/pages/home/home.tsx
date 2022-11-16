@@ -1,13 +1,8 @@
 import { FunctionComponent, useState } from 'react'
-import Footer from '../footer/footer'
-import ComplaintModal from './userSpaceComponents/complaintModal'
-import FaqMin from './userSpaceComponents/faqMin'
-import UserNavbar from './userSpaceComponents/navbar/userNavbar'
-import RequestModal from './userSpaceComponents/requestModal'
-import UserCurrentPayedServices from './userSpaceComponents/userCurrentPayedService'
-import UserSubscriptionsAndPackagesList from './userSpaceComponents/userSbcrtionsAndPckge'
-import UserSpaceBanner from './userSpaceComponents/userSpaceBanner'
-import UserSpaceLayout from './userSpaceLayout'
+import UserSpaceBanner from '../../components/banner/banner'
+import ComplaintModal from '../../components/complaintModal'
+import RequestModal from '../../components/requestModal'
+import UserSpaceLayout from '../../userSpaceLayout'
 
 const UserSpaceHome: FunctionComponent<{ user }> = ({ user }) => {
   const [requestModalOpen, setRequestModalOpen] = useState(false)

@@ -1,33 +1,23 @@
-import FaqPage from '../components/userSpace/userSpaceComponents/faqPage'
-import UserSpaceLayout from '../components/userSpace/userSpaceLayout'
-import { FunctionComponent, useState } from 'react'
-import { useSession } from 'next-auth/react'
-import SignInPage from '../components/signIn/signIn'
+import { FunctionComponent, useEffect, useState } from 'react'
+import { getUserFromAPI } from '../components/shared/const'
+import FaqPage from '../components/userSpace/pages/faq/faqPage'
 
 const Faq: FunctionComponent = () => {
-  const [userWantSignIn, setUserWantSignIn] = useState(true)
-  const { data: session } = useSession()
-  const user = session?.user
+  const [user, setUser] = useState()
 
-  if (session) {
-    return (
-      <UserSpaceLayout user={user}>
-        <FaqPage />
-      </UserSpaceLayout>
-    )
-  } else {
-    return (
-      <div>
-        <SignInPage
-          userWantSignIn={true}
-          setUserWantSignIn={setUserWantSignIn}
-          isBlur={false}
-          closeButton={false}
-          preventClose={true}
-        />
-      </div>
-    )
+  const getUser = async () => {
+    const data = await getUserFromAPI()
+
+    if (data.user) {
+      setUser(data.user)
+    }
   }
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  return <FaqPage user={user} />
 }
 
 export default Faq

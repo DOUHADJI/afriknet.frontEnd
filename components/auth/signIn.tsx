@@ -1,8 +1,8 @@
 import { Button, Checkbox, Input, Modal, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
-import { FunctionComponent } from 'react'
-import { BsFillFileLockFill, BsGithub, BsPersonFill } from 'react-icons/bs'
-import { appTitle } from '../const'
+import { FunctionComponent, useEffect, useState } from 'react'
+import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
+import { appTitle, getCsrfToken, postWithAxios } from '../shared/const'
 import Link from 'next/link'
 
 const SignInPage: FunctionComponent<{
@@ -18,9 +18,39 @@ const SignInPage: FunctionComponent<{
   preventClose,
   closeButton,
 }) => {
-  const route = useRouter()
+  const router = useRouter()
 
-  const logUser = () => {}
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const getEmail = (e) => {
+    const email = e.target.value
+    setEmail(email)
+  }
+
+  const getPassword = (e) => {
+    const name = e.target.value
+    setPassword(name)
+  }
+
+  const logUser = async () => {
+    const user = {
+      email: email,
+      password: password,
+    }
+
+    const res = await postWithAxios('/login', user)
+    console.log(res)
+
+    if (res.status === 'success') {
+      router.push('/userHome')
+    }
+  }
+
+  useEffect(() => {
+    getCsrfToken()
+  }, [])
+
   return (
     <Modal
       open={userWantSignIn}
@@ -57,6 +87,8 @@ const SignInPage: FunctionComponent<{
             textDecorationColor: '#dbdad2',
           }}
           aria-label="email input"
+          onChange={getEmail}
+          value={email}
         />
 
         <Input.Password
@@ -68,6 +100,8 @@ const SignInPage: FunctionComponent<{
           placeholder="Password"
           contentLeft={<BsFillFileLockFill />}
           aria-label="pass input"
+          onChange={getPassword}
+          value={password}
         />
 
         <div className="flex justify-between ">
@@ -91,20 +125,6 @@ const SignInPage: FunctionComponent<{
         <div>
           <hr />
         </div>
-
-        {/*   <Button
-          type={null}
-          className="bg-zinc-900 mt-12"
-          size={'xl'}
-          onClick={logUser}
-        >
-          <div className="flex items-center  text-md">
-            <span className="mx-3 text-[1.3rem]">
-              <BsGithub />
-            </span>
-            <p className="text-extrabold text-[1rem]">Sign In with Github</p>
-          </div>
-        </Button> */}
       </Modal.Body>
     </Modal>
   )

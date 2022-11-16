@@ -1,32 +1,24 @@
-import { FunctionComponent, useState } from 'react'
-import UserSpaceHome from '../components/userSpace/userSpaceHome'
-import { useSession, signIn, signOut } from 'next-auth/react'
-import SignInPage from '../components/signIn/signIn'
+import { FunctionComponent, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { getUserFromAPI } from '../components/shared/const'
+import { Loading } from '@nextui-org/react'
+import UserSpaceHome from '../components/userSpace/pages/home/home'
 
-const UserHome: FunctionComponent = () => {
-  const [userWantSignIn, setUserWantSignIn] = useState(true)
-  const { data: session } = useSession()
-  const user = {}
+const UserHome: FunctionComponent<{}> = ({}) => {
+  const [user, setUser] = useState()
 
-  const router = useRouter()
+  const getUser = async () => {
+    const data = await getUserFromAPI()
 
-  if (session) {
-    return <UserSpaceHome user={session.user} />
-  } else {
-    return (
-      <div>
-        <SignInPage
-          userWantSignIn={true}
-          setUserWantSignIn={setUserWantSignIn}
-          isBlur={false}
-          closeButton={false}
-          preventClose={true}
-        />
-      </div>
-    )
+    if (data.user) {
+      setUser(data.user)
+    }
   }
 
-  /*   return <UserSpaceHome user={session.user} /> */
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  return <UserSpaceHome user={user} />
 }
 export default UserHome

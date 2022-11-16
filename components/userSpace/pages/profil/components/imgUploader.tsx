@@ -11,9 +11,9 @@ const ImgUploader: FunctionComponent<{ user }> = ({ user }) => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 w-full ">
-      <div className="h-[140px] w-[140px] rounded-[40px] border-2 border-gray-500 dark:border-white">
+      <div className="h-[140px] w-[140px] rounded-[40px] dark:border-white">
         <Image
-          src={user?.image}
+          src={user.image ? user.image : '/images/user.webp'}
           width={140}
           height={140}
           alt="User Profil image"

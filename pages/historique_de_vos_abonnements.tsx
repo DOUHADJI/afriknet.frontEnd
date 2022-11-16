@@ -1,34 +1,24 @@
-import UserSpaceLayout from '../components/userSpace/userSpaceLayout'
-import { FunctionComponent, useState } from 'react'
-import UserSubscriptionsAndPackagesList from '../components/userSpace/userSpaceComponents/userSbcrtionsAndPckge'
-import { useSession } from 'next-auth/react'
-import SignInPage from '../components/signIn/signIn'
+import { useRouter } from 'next/router'
+import { FunctionComponent, useState, useEffect } from 'react'
+import { getUserFromAPI } from '../components/shared/const'
+import UserSubscriptions from '../components/userSpace/pages/subscriptions/userSubscriptions'
 
 const UserAbonnementsHistory: FunctionComponent = () => {
-  const [userWantSignIn, setUserWantSignIn] = useState(true)
+  const [user, setUser] = useState()
 
-  const { data: session } = useSession()
+  const getUser = async () => {
+    const data = await getUserFromAPI()
 
-  const user = session?.user
-  if (session) {
-    return (
-      <UserSpaceLayout user={user}>
-        <UserSubscriptionsAndPackagesList />
-      </UserSpaceLayout>
-    )
-  } else {
-    return (
-      <div>
-        <SignInPage
-          userWantSignIn={true}
-          setUserWantSignIn={setUserWantSignIn}
-          isBlur={false}
-          closeButton={false}
-          preventClose={true}
-        />
-      </div>
-    )
+    if (data.user) {
+      setUser(data.user)
+    }
   }
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  return <UserSubscriptions user={user} />
 }
 
 export default UserAbonnementsHistory

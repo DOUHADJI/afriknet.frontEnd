@@ -1,7 +1,8 @@
 import { Button, Navbar, Text, Link } from '@nextui-org/react'
 import { FunctionComponent, useState, useEffect } from 'react'
 import { BsHddNetwork } from 'react-icons/bs'
-import { appTitle, getCsrfToken, getWithAxios } from '../const'
+import { appTitle } from '../../const'
+
 
 const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
   setUserWantSignIn,

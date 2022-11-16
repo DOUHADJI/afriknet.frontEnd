@@ -1,34 +1,24 @@
-import UserSpaceLayout from '../components/userSpace/userSpaceLayout'
-import { FunctionComponent, useState } from 'react'
-import UserSpaceProfil from '../components/userSpace/userSpaceComponents/profil/UserSpaceProfil'
-import { useSession } from 'next-auth/react'
-import SignInPage from '../components/signIn/signIn'
+import { useRouter } from 'next/router'
+import { FunctionComponent, useEffect, useState } from 'react'
+import { getUserFromAPI } from '../components/shared/const'
+import UserSpaceProfil from '../components/userSpace/pages/profil/profil'
 
 const Profil: FunctionComponent<{}> = ({}) => {
-  const [userWantSignIn, setUserWantSignIn] = useState(true)
-  const { data: session } = useSession()
+  const [user, setUser] = useState()
 
-  const user = session?.user
+  const getUser = async () => {
+    const data = await getUserFromAPI()
 
-  if (session) {
-    return (
-      <UserSpaceLayout user={user}>
-        <UserSpaceProfil user={user} />
-      </UserSpaceLayout>
-    )
-  } else {
-    return (
-      <div>
-        <SignInPage
-          userWantSignIn={true}
-          setUserWantSignIn={setUserWantSignIn}
-          isBlur={false}
-          closeButton={false}
-          preventClose={true}
-        />
-      </div>
-    )
+    if (data.user) {
+      setUser(data.user)
+    }
   }
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  return <UserSpaceProfil user={user} />
 }
 
 export default Profil

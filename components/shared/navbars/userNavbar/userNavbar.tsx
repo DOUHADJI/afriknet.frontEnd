@@ -1,11 +1,8 @@
-import { Avatar, Navbar, Text } from '@nextui-org/react'
+import { Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
-import { BsFillPersonFill, BsPerson } from 'react-icons/bs'
-import { appTitle } from '../../../const'
-import LangSwitcher from '../../../navbar/langSwitcher'
-import MyNavbar from '../../../navbar/navbar'
-import ThemeSwitcher from '../../../navbar/themeSwitcher'
-import UserMenu from './userSpaceNavbarComponents/userMenu'
+import { appTitle } from '../../const'
+import ThemeSwitcher from '../../themeSwitcher'
+import UserMenu from './components/userMenu'
 
 const UserNavbar: FunctionComponent<{ userName; userImage }> = ({
   userName,

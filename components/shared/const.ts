@@ -2,23 +2,24 @@ import axios from 'axios'
 
 export const appTitle = 'Epi.net'
 
-/* axios.defaults.withCredentials = true
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest' */
-
 export const getCookieValue = (tokenName: string) => {
   const token = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith(tokenName + '='))
-    .split('=')[1]
 
-  return token
+  if (token !== '') {
+    token
+      .split('; ')
+      .find((row) => row.startsWith(tokenName + '='))
+      .split('=')[1]
+
+    return token
+  } else {
+    return token
+  }
 }
 
-/* const token = getCookieValue('XSRF-TOKEN') */
-
-export const axiosInstance = (token?) => {
-  return axios.create({
+export const axiosInstance = () => {
+  const axiosInstance = axios.create({
+    withCredentials: true,
     baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
     params: {
       headers: {
@@ -27,17 +28,16 @@ export const axiosInstance = (token?) => {
       },
     },
     timeout: 5000,
-    withCredentials: true,
   })
+
+  return axiosInstance
 }
 
 export const getCsrfToken = async () => {
   try {
-    axiosInstance()
-      .get('/sanctum/csrf-cookie')
-      .then((response) => {
-        console.log(response.headers)
-      })
+    const { headers } = await axiosInstance().get('/sanctum/csrf-cookie')
+
+    return headers
   } catch (err) {
     return err
   }
@@ -58,19 +58,26 @@ export const getWithAxios = async (url: string) => {
   return data
 }
 
-export const postWithAxios = async (url: string, dataToSend: Object, token) => {
+export const postWithAxios = async (url: string, dataToSend: Object) => {
   const params = {
-    headers: {
-      'X-XSRF-TOKEN': token,
-    },
+    withCredentials: true,
   }
 
+  console.log(axiosInstance().post(url, dataToSend, params))
+
   try {
-    const { data } = await axiosInstance().post(url, dataToSend, params)
+    const { data } = await axiosInstance().post(url, dataToSend)
     return data
   } catch (error) {
+    console.log('redind error data')
     const { data } = error.response
 
     return data
   }
+}
+
+export const getUserFromAPI = async () => {
+  const data = await getWithAxios('/user')
+
+  return data
 }

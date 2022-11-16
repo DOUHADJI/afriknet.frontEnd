@@ -2,7 +2,13 @@ import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, useState } from 'react'
 import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
-import { appTitle, getCookieValue, getCsrfToken, postWithAxios } from '../const'
+import { ToastContainer, toast } from 'react-toastify'
+import {
+  appTitle,
+  getCookieValue,
+  getCsrfToken,
+  postWithAxios,
+} from '../shared/const'
 
 const SignUpPage: FunctionComponent = () => {
   const router = useRouter()
@@ -12,6 +18,7 @@ const SignUpPage: FunctionComponent = () => {
   const [password, setPassword] = useState('')
   const [confirmedPassword, setConfirmedPassword] = useState('')
   const [error, setError] = useState<any>({})
+  const [data, setData] = useState<any>({})
 
   const getName = (e) => {
     const name = e.target.value
@@ -33,7 +40,13 @@ const SignUpPage: FunctionComponent = () => {
     setConfirmedPassword(confirmedPassword)
   }
 
-  const registerNewUser = async () => {
+  const redirectTo = (url: string) => {
+    router.push(url)
+  }
+
+  const registerNewUserAndRedirectOnSuccess = async () => {
+    getCsrfToken()
+
     const user = {
       name: name,
       email: email,
@@ -41,24 +54,22 @@ const SignUpPage: FunctionComponent = () => {
       password_confirmation: confirmedPassword,
     }
 
-    getCsrfToken()
+    const res = await postWithAxios('/api/register', user)
 
-    const token = getCookieValue('XSRF-TOKEN')
+    res.errors ? setError(res.errors) : setData(res)
+    res.errors ? console.log(res.errors) : console.log(res)
 
-    const res = await postWithAxios('/api/register', user, token)
-
-    res.errors ? setError(res.errors) : null
-  }
-
-  const redirectToHomePage = () => {
-    router.push('/')
+    if (!res.errors) {
+      toast(res.message)
+      redirectTo('/')
+    }
   }
 
   return (
     <Modal
       open={true}
       closeButton
-      onClose={redirectToHomePage}
+      onClose={() => redirectTo('/')}
       className="SignInBackground"
     >
       <Modal.Header>
@@ -73,6 +84,8 @@ const SignUpPage: FunctionComponent = () => {
         <Text id="modal-title" size={18} color={'#FFFFFF'}>
           Sign In with email
         </Text>
+
+        <ToastContainer />
 
         <Input
           clearable
@@ -134,7 +147,12 @@ const SignUpPage: FunctionComponent = () => {
           value={confirmedPassword}
         />
 
-        <Button auto color="success" onPress={registerNewUser} type={null}>
+        <Button
+          auto
+          color="success"
+          onPress={registerNewUserAndRedirectOnSuccess}
+          type={null}
+        >
           S'enregistrer
         </Button>
 

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
-import { appTitle } from '../../const'
-import UserBannerAskForService from './UserSpaceBannerContent/UserBannerAskForService'
-import UserBannerInfos from './UserSpaceBannerContent/userBannerInfos'
+import { appTitle } from '../../../shared/const'
+import UserBannerAskForService from './components/UserBannerAskForService'
+import UserBannerContent from './components/userBannerContent'
 
 const UserSpaceBanner: FunctionComponent<{
   user
@@ -17,7 +17,7 @@ const UserSpaceBanner: FunctionComponent<{
       </div>
 
       <div className="mt-4 p-8 w-11/12 h-full ">
-        <UserBannerInfos
+        <UserBannerContent
           user={user}
           setShowRequestModal={setShowRequestModal}
           setShowComplaintModal={setShowComplaintModal}

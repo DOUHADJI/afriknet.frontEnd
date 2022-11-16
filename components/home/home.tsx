@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from 'react'
-import Footer from '../footer/footer'
-import MyNavbar from '../navbar/navbar'
-import SignIn from '../signIn/signIn'
+import SignIn from '../auth/signIn'
+import Footer from '../shared/footer'
+import MyNavbar from '../shared/navbars/homeNavbar/HomeNavbar'
 import Banner from './homeComponents/banner'
 import MiddlePageBanner from './homeComponents/middlePageBanner'
 import Offers from './homeComponents/offers/offers'
@@ -9,7 +9,6 @@ import Services from './homeComponents/services/services'
 
 const Home: FunctionComponent = () => {
   const [userWantSignIn, setUserWantSignIn] = useState(false)
-  const [userWantSignUp, setUserWantSignUp] = useState(false)
 
   return (
     <div className="leading-normal tracking-normal text-white gradient">

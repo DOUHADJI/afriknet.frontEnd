@@ -1,7 +1,7 @@
 import { Avatar, Card, Grid, Text } from '@nextui-org/react'
 import Image from 'next/image'
 import { FunctionComponent } from 'react'
-import MyNavbar from '../../navbar/navbar'
+import MyNavbar from '../../navbars/homeNavbar/HomeNavbar'
 import Services from './services/services'
 
 const Banner: FunctionComponent = () => {
