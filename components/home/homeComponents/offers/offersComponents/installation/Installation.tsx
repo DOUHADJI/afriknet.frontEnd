@@ -1,4 +1,4 @@
-import { Eligibility } from "./eligibility";
+import { Eligibility } from './eligibility'
 
 export function Installation() {
   return (
@@ -12,7 +12,7 @@ export function Installation() {
       <h3 className="my-4 text-3xl leading-tight">
         La box et l&apos;installation à partir de 15 000 FCFA
       </h3>
-     
+
       <Eligibility />
     </section>
   )

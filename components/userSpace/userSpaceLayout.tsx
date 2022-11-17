@@ -1,7 +1,7 @@
 import { Loading } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, ReactNode, useEffect, useState } from 'react'
-import Footer from '../shared/footer'
+import Footer from '../shared/footer/footer'
 import UserNavbar from '../shared/navbars/userNavbar/userNavbar'
 
 const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({

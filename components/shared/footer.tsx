@@ -2,7 +2,6 @@ import { Badge, Link, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
-
 const CreateBy: FunctionComponent = () => {
   return (
     <div className=" pt-8 px-4 pb-6">

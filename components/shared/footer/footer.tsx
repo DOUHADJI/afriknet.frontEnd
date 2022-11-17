@@ -11,13 +11,10 @@ import SocialLinks from './socialLinks'
 
 const Footer = () => {
   const router = useRouter()
-
-
+  console.log(router.asPath)
   return (
-    <div className="pt-12 dark:bg-gray-800">
+    <div className="w-full pt-12 dark:bg-gray-800">
       <div className="flex justify-around gap-12  px-6 border-t border-b  py-12 sm:flex flex-wrap">
-       
-
         <div className="grid justify-center gap-4">
           <Link className="text-gray-700  dark:text-white" href={'#'}>
             politique de confidentialité
@@ -29,11 +26,7 @@ const Footer = () => {
 
         <div className="grid  justify-center  items-around gap-12">
           <SocialLinks />
-          {
-            router.asPath === '' ?
-            <FooterThemeSwitcher  /> : null
-          }
-          
+          {router.asPath === '/ ' ? <FooterThemeSwitcher /> : null}
         </div>
       </div>
       <AppInfos />

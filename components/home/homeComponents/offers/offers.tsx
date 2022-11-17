@@ -11,7 +11,7 @@ const Offers: FunctionComponent = () => {
     {
       type: 'Internet',
       offer_name: 'Easy Surfing',
-      icons: [<BsWifi />],
+      icons: [<BsWifi key={'01'} />],
       advantages: [
         "Jusqu'à 50 Mbps",
         'Turbo-vitesse de navigation',
@@ -24,7 +24,7 @@ const Offers: FunctionComponent = () => {
     {
       type: 'Tv',
       offer_name: 'Impression',
-      icons: [<GrSatellite />],
+      icons: [<GrSatellite key={'02'} />],
       advantages: [
         ' 200+ chaînes',
         '5 chaînes premium',
@@ -37,7 +37,7 @@ const Offers: FunctionComponent = () => {
     {
       type: 'Internet + TV',
       offer_name: 'Home Comfort',
-      icons: [<BsWifi />, <GrSatellite />],
+      icons: [<BsWifi key={'03'} />, <GrSatellite key={'04'} />],
       advantages: [
         " Jusqu'à 100 Mbps",
 
@@ -51,13 +51,17 @@ const Offers: FunctionComponent = () => {
     {
       type: 'Internet + TV + Phone',
       offer_name: 'Epi Premium ',
-      icons: [<BsWifi />, <GrSatellite/>, <BsPhone />],
+      icons: [
+        <BsWifi key={'05'} />,
+        <GrSatellite key={'06'} />,
+        <BsPhone key={'07'} />,
+      ],
       advantages: [
-       "Jusqu'à 1000 Mbps",
+        "Jusqu'à 1000 Mbps",
 
-"250+ chaînes",
-"Routeur WiFi et TV Box",
-"Téléphoner"
+        '250+ chaînes',
+        'Routeur WiFi et TV Box',
+        'Téléphoner',
       ],
       price: '40000',
     },
@@ -75,6 +79,7 @@ const Offers: FunctionComponent = () => {
           <div className="grid grid-cols-1 gap-6 sm:flex-row justify-center pt-12 my-12 sm:my-4 md:grid-cols-2">
             {offers.map((item, index) => (
               <OfferCard
+                key={index}
                 type={item.type}
                 offer_name={item.offer_name}
                 icons={item.icons}
@@ -90,7 +95,6 @@ const Offers: FunctionComponent = () => {
       <WaveTopSvg />
 
       <Installation />
-
     </div>
   )
 }

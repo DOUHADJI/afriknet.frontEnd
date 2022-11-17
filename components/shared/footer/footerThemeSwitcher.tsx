@@ -4,10 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState, useMemo } from 'react'
 
-
 const FooterThemeSwitcher = () => {
- 
-
   const { systemTheme, theme, setTheme } = useTheme()
 
   return (
