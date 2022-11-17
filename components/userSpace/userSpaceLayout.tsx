@@ -8,7 +8,6 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
   children,
   user,
 }) => {
-
   const router = useRouter()
 
   const redirectToLogin = () => {

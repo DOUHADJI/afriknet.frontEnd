@@ -15,11 +15,8 @@ const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
   const router = useRouter()
 
   const LogOutUser = async () => {
-
-     await getWithAxios('/logout')
-    router.push("/signIn")
-
-  
+    await getWithAxios('/logout')
+    router.push('/signIn')
   }
 
   const MenuItems = [

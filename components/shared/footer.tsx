@@ -1,9 +1,9 @@
 import { Badge, Link, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
-import { appTitle } from '../const'
 
-const Footer: FunctionComponent = () => {
+
+const CreateBy: FunctionComponent = () => {
   return (
     <div className=" pt-8 px-4 pb-6">
       <div className="flex"></div>
@@ -41,4 +41,4 @@ const Footer: FunctionComponent = () => {
   )
 }
 
-export default Footer
+export default CreateBy

@@ -3,7 +3,6 @@ import { FunctionComponent, useState, useEffect } from 'react'
 import { BsHddNetwork } from 'react-icons/bs'
 import { appTitle } from '../../const'
 
-
 const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
   setUserWantSignIn,
 }) => {
@@ -13,28 +12,22 @@ const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
   ]
 
   return (
-   <div>
-    <Navbar>
-      <Navbar.Brand>
-        <div className='text-xl'>
-        <BsHddNetwork />
-           <Text b>
-           {appTitle}
-           </Text>
-        </div>
-      </Navbar.Brand>
-      <Navbar.Content>
-
-      </Navbar.Content>
-      <Navbar.Content>
-        <Button auto>
-          <Text className='underline'>
-            Se connecter
-          </Text>
-        </Button>
+    <div>
+      <Navbar>
+        <Navbar.Brand>
+          <div className="text-xl">
+            <BsHddNetwork />
+            <Text b>{appTitle}</Text>
+          </div>
+        </Navbar.Brand>
+        <Navbar.Content></Navbar.Content>
+        <Navbar.Content>
+          <Button auto>
+            <Text className="underline">Se connecter</Text>
+          </Button>
         </Navbar.Content>
-    </Navbar>
-   </div>
+      </Navbar>
+    </div>
   )
 }
 

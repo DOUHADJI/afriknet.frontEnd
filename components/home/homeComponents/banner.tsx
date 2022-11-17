@@ -3,7 +3,6 @@ import { FunctionComponent } from 'react'
 import { BannerSvg } from './banner/bannerSvg'
 
 const Banner: FunctionComponent = () => {
-
   const affirmations = [
     {
       text: "Vivez l'internet autrement",
@@ -19,7 +18,6 @@ const Banner: FunctionComponent = () => {
     },
   ]
 
-  
   return (
     <div>
       <div className="pt-24">
@@ -27,7 +25,7 @@ const Banner: FunctionComponent = () => {
           {/*  <!--Left Col--> */}
           <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
             <p className="uppercase leading-normal text-2xl mb-8 tracking-loose w-full ">
-              On augmente la vitesse de nos offres !!! 
+              On augmente la vitesse de nos offres !!!
             </p>
             <h1 className="my-4 text-5xl font-bold leading-tight">
               Vivez l&apos;internet autrement...
@@ -35,7 +33,6 @@ const Banner: FunctionComponent = () => {
             <p className="leading-normal text-2xl mb-8">
               Naviguez en toute tranquilité
             </p>
-            
           </div>
           {/* <!--Right Col--> */}
           <div className="w-full md:w-3/5 py-6 text-center">
@@ -50,7 +47,7 @@ const Banner: FunctionComponent = () => {
         </div>
       </div>
       <div className="relative -mt-12 lg:-mt-24">
-      <BannerSvg/>
+        <BannerSvg />
       </div>
     </div>
   )

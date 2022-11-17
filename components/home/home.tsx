@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from 'react'
 import SignIn from '../auth/signIn'
-import Footer from '../shared/footer'
+import Footer from '../shared/footer/footer'
+
 import MyNavbar from '../shared/navbars/homeNavbar/HomeNavbar'
 import Banner from './homeComponents/banner'
 import MiddlePageBanner from './homeComponents/middlePageBanner'
