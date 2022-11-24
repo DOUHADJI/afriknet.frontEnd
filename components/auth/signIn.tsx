@@ -2,8 +2,9 @@ import { Button, Checkbox, Input, Modal, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, useEffect, useState } from 'react'
 import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
-import { appTitle, getCsrfToken, postWithAxios } from '../shared/const/api'
+import { getCsrfToken, postWithAxios } from '../shared/const/api'
 import Link from 'next/link'
+import { appTitle } from '../shared/const/const'
 
 const SignInPage: FunctionComponent<{
   isBlur: boolean
