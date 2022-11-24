@@ -54,7 +54,7 @@ const TopBar: FunctionComponent = () => {
                 <Slider>
                   <div className="flex items-center justify-center">
                     {streams_2.map((item, index) => (
-                      <Slide key={index}>
+                      <Slide key={index} index={index}>
                         <Selection
                           key={index}
                           bg_image={item.bg_image}
@@ -82,7 +82,7 @@ const TopBar: FunctionComponent = () => {
                 <Slider>
                   <div className="flex items-center justify-center">
                     {streams_3.map((item, index) => (
-                      <Slide key={index}>
+                      <Slide key={index} index={index}>
                         <Selection
                           key={index}
                           bg_image={item.bg_image}
