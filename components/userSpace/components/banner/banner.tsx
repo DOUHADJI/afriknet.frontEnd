@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import { appTitle } from '../../../shared/const/api'
+import { appTitle } from '../../../shared/const/const'
 import UserBannerAskForService from './components/UserBannerAskForService'
 import UserBannerContent from './components/userBannerContent'
 
