@@ -26,7 +26,7 @@ const TopBar: FunctionComponent = () => {
                 <Slider>
                   <div className="flex items-center justify-center">
                     {streams.map((item, index) => (
-                      <Slide key={index}>
+                      <Slide key={index} index={index}>
                         <Selection
                           key={index}
                           bg_image={item.bg_image}
