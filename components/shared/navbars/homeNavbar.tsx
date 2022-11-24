@@ -1,7 +1,7 @@
 import { Button, Link, Navbar, Text } from '@nextui-org/react'
 import { FunctionComponent, useState, useEffect } from 'react'
 import { BsHddNetwork } from 'react-icons/bs'
-import { appTitle } from '../const/api'
+import { appTitle } from '../const/const'
 
 const MyNavbar: FunctionComponent<{}> = ({}) => {
   const links = [

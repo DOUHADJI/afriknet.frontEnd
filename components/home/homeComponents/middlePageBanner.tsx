@@ -1,6 +1,6 @@
 import { Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
-import { appTitle } from '../../shared/const/api'
+import { appTitle } from '../../shared/const/const'
 
 const MiddlePageBanner: FunctionComponent = () => {
   return (

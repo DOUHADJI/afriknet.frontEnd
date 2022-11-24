@@ -1,4 +1,4 @@
-import { Image, Text } from '@nextui-org/react'
+import { Image } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 import Stream from './servicesComponents/stream'
 

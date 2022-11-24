@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react'
-import { Card, Grid, Text, Button, Image, Input } from '@nextui-org/react'
-import { useRouter } from 'next/router'
+import { Grid, Text, Button, Input } from '@nextui-org/react'
 import ImgUploader from './imgUploader'
 
 const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({

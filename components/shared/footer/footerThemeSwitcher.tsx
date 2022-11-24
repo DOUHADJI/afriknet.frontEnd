@@ -1,10 +1,7 @@
-import { Dropdown, Image } from '@nextui-org/react'
 import { useTheme } from 'next-themes'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useState, useMemo } from 'react'
+import { FunctionComponent } from 'react'
 
-const FooterThemeSwitcher = () => {
+const FooterThemeSwitcher: FunctionComponent = () => {
   const { systemTheme, theme, setTheme } = useTheme()
 
   return (

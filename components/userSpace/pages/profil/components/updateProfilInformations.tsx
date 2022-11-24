@@ -1,5 +1,4 @@
-import { Card, Grid, Text, Button, Image, Input } from '@nextui-org/react'
-import { useRouter } from 'next/router'
+import { Grid, Text, Button, Input } from '@nextui-org/react'
 import { FunctionComponent, useState } from 'react'
 import ImgUploader from './imgUploader'
 

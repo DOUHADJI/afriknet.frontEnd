@@ -1,5 +1,4 @@
-import { Image } from '@nextui-org/react'
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent } from 'react'
 import { movies } from '../../../shared/const/movies'
 import { getSports, sports } from '../../../shared/const/sports'
 import UserSpaceLayout from '../../userSpaceLayout'

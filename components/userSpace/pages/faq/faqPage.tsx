@@ -1,4 +1,4 @@
-import { Collapse, Link, Text } from '@nextui-org/react'
+import { Collapse, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import UserSpaceLayout from '../../userSpaceLayout'

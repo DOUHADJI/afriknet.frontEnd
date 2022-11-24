@@ -1,6 +1,6 @@
 import { Link } from '@nextui-org/react'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
-import { myGithubProfilLink, myLinkedinProfilLink } from '../const/api'
+import { myGithubProfilLink, myLinkedinProfilLink } from '../const/const'
 
 const SocialLinks = () => {
   return (

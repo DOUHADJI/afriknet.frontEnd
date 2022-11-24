@@ -1,8 +1,5 @@
 import { FunctionComponent } from 'react'
-import { appTitle } from '../../../../shared/const/api'
-import UserNavbar from '../../../../shared/navbars/userNavbar/userNavbar'
 import Selection from '../../../components/selection'
-import NavLinkItem from '../../../components/navLinkItem'
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 import { streams, streams_2, streams_3 } from '../../../../shared/const/streams'

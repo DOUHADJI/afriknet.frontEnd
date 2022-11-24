@@ -1,6 +1,6 @@
 import { Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
-import { appTitle } from '../../const/api'
+import { appTitle } from '../../const/const'
 import ThemeSwitcher from '../../themeSwitcher'
 import UserMenu from './components/userMenu'
 

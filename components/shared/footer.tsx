@@ -1,4 +1,4 @@
-import { Badge, Link, Text } from '@nextui-org/react'
+import { Link, Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
