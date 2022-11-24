@@ -1,4 +1,4 @@
-export const appTitle = 'Epi.net'
+export const appTitle = 'afriknet'
 
 export const myLinkedinProfilLink =
   'https://www.linkedin.com/in/amevi-gregoire-douhadji-5b43281ab/'
