@@ -1,14 +1,10 @@
-import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { Button, Input, Modal, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, useState } from 'react'
 import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
 import { ToastContainer, toast } from 'react-toastify'
-import {
-  appTitle,
-  getCookieValue,
-  getCsrfToken,
-  postWithAxios,
-} from '../shared/const'
+import { getCsrfToken, postWithAxios } from '../shared/const/api'
+import { appTitle } from '../shared/const/const'
 
 const SignUpPage: FunctionComponent = () => {
   const router = useRouter()

@@ -1,28 +1,53 @@
+import { Image } from '@nextui-org/react'
 import { FunctionComponent, useState } from 'react'
-import UserSpaceBanner from '../../components/banner/banner'
-import ComplaintModal from '../../components/complaintModal'
-import RequestModal from '../../components/requestModal'
+import { movies } from '../../../shared/const/movies'
+import { getSports, sports } from '../../../shared/const/sports'
 import UserSpaceLayout from '../../userSpaceLayout'
+import HomeSection from './components/section/section'
+import TopBar from './components/topBar'
 
 const UserSpaceHome: FunctionComponent<{ user }> = ({ user }) => {
-  const [requestModalOpen, setRequestModalOpen] = useState(false)
-  const [complaintModalOpen, setComplaintModalOpen] = useState(false)
+  console.log(getSports())
+  const sections = [
+    {
+      title: 'tout le sport',
+      subtitle:
+        'Vibrez pour les plus grandes compétitions et événements sportifs',
+      cover_image: '/images/UCL.jpg',
+      chains: sports,
+      section: {
+        title: 'Sport',
+        url: '#',
+      },
+    },
 
+    {
+      title: 'LE MEILLEUR DU CINÉMA',
+      subtitle:
+        'Émotion, frisson, action, comédie, aventure… Partagez de grands moments cinéma d’exception',
+      cover_image: '/images/black_adam.jpg',
+      chains: movies,
+      section: {
+        title: 'Cinema',
+        url: '#',
+      },
+    },
+  ]
   return (
     <UserSpaceLayout user={user}>
-      <UserSpaceBanner
-        user={user}
-        setShowRequestModal={setRequestModalOpen}
-        setShowComplaintModal={setComplaintModalOpen}
-      />
-      <RequestModal
-        show={requestModalOpen}
-        setShowModal={setRequestModalOpen}
-      />
-      <ComplaintModal
-        show={complaintModalOpen}
-        setShowModal={setComplaintModalOpen}
-      />
+      <TopBar />
+      <div className="grid gap-12">
+        {sections.map((item, index) => (
+          <HomeSection
+            key={index}
+            title={item.title}
+            subtitle={item.subtitle}
+            cover_image={item.cover_image}
+            chains={item.chains}
+            section={item.section}
+          />
+        ))}
+      </div>
     </UserSpaceLayout>
   )
 }

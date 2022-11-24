@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { FunctionComponent, useState, useEffect } from 'react'
-import { getUserFromAPI } from '../components/shared/const'
+import { getUserFromAPI } from '../components/shared/const/api'
 import UserSubscriptions from '../components/userSpace/pages/subscriptions/userSubscriptions'
 
 const UserAbonnementsHistory: FunctionComponent = () => {

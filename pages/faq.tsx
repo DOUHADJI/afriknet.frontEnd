@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react'
-import { getUserFromAPI } from '../components/shared/const'
+import { getUserFromAPI } from '../components/shared/const/api'
 import FaqPage from '../components/userSpace/pages/faq/faqPage'
 
 const Faq: FunctionComponent = () => {

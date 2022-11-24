@@ -1,6 +1,6 @@
 import { Image, Link } from '@nextui-org/react'
 import { BsHddNetwork } from 'react-icons/bs'
-import { appTitle } from '../const'
+import { appTitle } from '../const/api'
 
 const AppInfos = () => {
   return (

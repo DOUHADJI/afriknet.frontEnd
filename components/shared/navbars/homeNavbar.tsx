@@ -1,11 +1,9 @@
 import { Button, Link, Navbar, Text } from '@nextui-org/react'
 import { FunctionComponent, useState, useEffect } from 'react'
 import { BsHddNetwork } from 'react-icons/bs'
-import { appTitle } from '../../const'
+import { appTitle } from '../const/api'
 
-const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
-  setUserWantSignIn,
-}) => {
+const MyNavbar: FunctionComponent<{}> = ({}) => {
   const links = [
     { title: 'Nos offres', href: '#' },
     { title: 'Qui sommes nous ?', href: '#' },
@@ -22,7 +20,7 @@ const MyNavbar: FunctionComponent<{ setUserWantSignIn }> = ({
         </Navbar.Brand>
         <Navbar.Content></Navbar.Content>
         <Navbar.Content>
-          <Link href="/signIn">
+          <Link href="/userHome">
             <Text className="underline text-bold text-xl">Se connecter</Text>
           </Link>
         </Navbar.Content>

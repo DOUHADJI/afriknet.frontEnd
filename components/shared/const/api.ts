@@ -1,27 +1,5 @@
 import axios from 'axios'
 
-export const appTitle = 'Epi.net'
-
-export const myLinkedinProfilLink =
-  'https://www.linkedin.com/in/amevi-gregoire-douhadji-5b43281ab/'
-
-export const myGithubProfilLink = 'https://github.com/DOUHADJI'
-
-export const getCookieValue = (tokenName: string) => {
-  const token = document.cookie
-
-  if (token !== '') {
-    token
-      .split('; ')
-      .find((row) => row.startsWith(tokenName + '='))
-      .split('=')[1]
-
-    return token
-  } else {
-    return token
-  }
-}
-
 export const axiosInstance = () => {
   const axiosInstance = axios.create({
     withCredentials: true,
@@ -83,6 +61,21 @@ export const postWithAxios = async (url: string, dataToSend: Object) => {
 
 export const getUserFromAPI = async () => {
   const data = await getWithAxios('/user')
-
+  console.log(data)
   return data
+}
+
+export const getCookieValue = (tokenName: string) => {
+  const token = document.cookie
+
+  if (token !== '') {
+    token
+      .split('; ')
+      .find((row) => row.startsWith(tokenName + '='))
+      .split('=')[1]
+
+    return token
+  } else {
+    return token
+  }
 }

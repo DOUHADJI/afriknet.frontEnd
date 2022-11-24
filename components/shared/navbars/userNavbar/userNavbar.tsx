@@ -1,6 +1,6 @@
 import { Text } from '@nextui-org/react'
 import { FunctionComponent } from 'react'
-import { appTitle } from '../../const'
+import { appTitle } from '../../const/api'
 import ThemeSwitcher from '../../themeSwitcher'
 import UserMenu from './components/userMenu'
 
@@ -9,11 +9,11 @@ const UserNavbar: FunctionComponent<{ userName; userImage }> = ({
   userImage,
 }) => {
   return (
-    <div className="flex justify-between px-12 py-5 w-full bg-zinc-300 dark:bg-zinc-800 ">
-      <div>
-        <Text b className="text-zinc-800 dark:text-white">
+    <div className="flex justify-between px-12 py-5 w-full ">
+      <div className=" p-1">
+        <p className="w-full text-center absolute left-0 text-3xl font-bold text-gray-400 dark:text-white">
           {appTitle}
-        </Text>
+        </p>
       </div>
       <div className="flex items-center gap-6">
         <div>
@@ -23,7 +23,7 @@ const UserNavbar: FunctionComponent<{ userName; userImage }> = ({
           <div className="flex gap-2 items-center pl-5 w-fit  xs:border-l-2">
             <Text
               b
-              className="text-[0px] sm:text-[0.8rem] md:text-sm md:text-gray-600 dark:text-white"
+              className="text-[0px] sm:text-[0.8rem] md:text-sm md:text-gray-100 dark:text-white"
             >
               {userName}
             </Text>

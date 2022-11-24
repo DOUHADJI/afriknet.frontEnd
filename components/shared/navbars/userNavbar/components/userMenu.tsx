@@ -9,7 +9,7 @@ import {
   BsQuestionCircleFill,
   BsTable,
 } from 'react-icons/bs'
-import { getWithAxios } from '../../../const'
+import { getWithAxios } from '../../../const/api'
 
 const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
   const router = useRouter()

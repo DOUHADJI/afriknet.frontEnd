@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { FunctionComponent, useEffect, useState } from 'react'
-import { getUserFromAPI } from '../components/shared/const'
+import { getUserFromAPI } from '../components/shared/const/api'
 import UserSpaceProfil from '../components/userSpace/pages/profil/profil'
 
 const Profil: FunctionComponent<{}> = ({}) => {
