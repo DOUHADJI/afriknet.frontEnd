@@ -11,6 +11,7 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<any>({})
+  const [data, setData] = useState<any>({})
 
   const getEmail = (e) => {
     const email = e.target.value
@@ -30,7 +31,7 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
 
     const res = await postWithAxios('/login', user)
 
-    res.errors ? setError(res.errors) : null
+    res.errors ? setError(res.errors) : setData(res)
 
     if (res.status === 'success') {
       router.push('/userHome')
@@ -58,7 +59,10 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
         <Text id="modal-title" size={18} className="mb-3 text-xl">
           Entrer dans votre espace client
         </Text>
-
+        
+        {data.error && (
+          <p className="text-red-400 -mt-3"> {data.error}</p>
+        )}
         <Input
           clearable
           bordered
@@ -95,6 +99,8 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
         {error.password && (
           <p className="text-red-400 -mt-3"> {error.password}</p>
         )}
+
+
 
         <div className="grid sm:grid-cols-2">
           <Checkbox
