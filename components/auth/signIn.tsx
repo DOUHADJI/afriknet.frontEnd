@@ -1,28 +1,16 @@
-import { Button, Checkbox, Input, Modal, Text } from '@nextui-org/react'
+import { Button, Checkbox, Input, Image, Text, Link } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, useEffect, useState } from 'react'
 import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
 import { getCsrfToken, postWithAxios } from '../shared/const/api'
-import Link from 'next/link'
 import { appTitle } from '../shared/const/const'
 
-const SignInPage: FunctionComponent<{
-  isBlur: boolean
-  userWantSignIn: boolean
-  preventClose: boolean
-  closeButton: boolean
-  setUserWantSignIn?
-}> = ({
-  userWantSignIn,
-  setUserWantSignIn,
-  isBlur,
-  preventClose,
-  closeButton,
-}) => {
+const SignInPage: FunctionComponent<{}> = ({}) => {
   const router = useRouter()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState<any>({})
 
   const getEmail = (e) => {
     const email = e.target.value
@@ -41,7 +29,8 @@ const SignInPage: FunctionComponent<{
     }
 
     const res = await postWithAxios('/login', user)
-    console.log(res)
+
+    res.errors ? setError(res.errors) : null
 
     if (res.status === 'success') {
       router.push('/userHome')
@@ -53,27 +42,23 @@ const SignInPage: FunctionComponent<{
   }, [])
 
   return (
-    <Modal
-      open={userWantSignIn}
-      blur={isBlur}
-      closeButton={closeButton}
-      preventClose={preventClose}
-      onClose={() => setUserWantSignIn(false)}
-      /*  css={{ background: '#dcd6d6'  }} */
-      className="SignInBackground"
-    >
-      <Modal.Header>
-        <Text id="modal-title" size={18} color={'#FFFFFF'}>
-          Welcome to{' '}
-          <Text b size={18} color={'#FFFFFF'}>
-            {appTitle}
-          </Text>
+    <div className="grid gradient min-h-screen sm:grid-cols-2">
+      <div className="hidden sm:flex sm:flex-col justify-center gap-6 ">
+        <Image alt="login image" src="images/login.svg" width={320} />
+      </div>
+      <div className="flex flex-col justify-center  gap-4 bg-white p-12">
+        <Text
+          id="modal-title"
+          size={18}
+          className="mb-8 text-4xl text-center font-bold "
+        >
+          {appTitle}
         </Text>
-      </Modal.Header>
-      <Modal.Body>
-        <Text id="modal-title" size={18} color={'#FFFFFF'}>
-          Sign In with email
+
+        <Text id="modal-title" size={18} className="mb-3 text-xl">
+          Entrer dans votre espace client
         </Text>
+
         <Input
           clearable
           bordered
@@ -92,6 +77,8 @@ const SignInPage: FunctionComponent<{
           value={email}
         />
 
+        {error.email && <p className="text-red-400 -mt-3"> {error.email}</p>}
+
         <Input.Password
           clearable
           bordered
@@ -105,29 +92,42 @@ const SignInPage: FunctionComponent<{
           value={password}
         />
 
-        <div className="flex justify-between ">
+        {error.password && (
+          <p className="text-red-400 -mt-3"> {error.password}</p>
+        )}
+
+        <div className="grid sm:grid-cols-2">
           <Checkbox
             title="remember  me"
-            label="remember me"
-            size="sm"
+            label="Se rappeler de moi"
+            size="xs"
             name="remember_me"
+            className="text-xl"
           />
-          <Link href={'#'}>Forgot your password ?</Link>
+          <Link href={'#'}>
+            <p className="text-black text-sm text-center text-lg">
+              Mot de passe oublié ?
+            </p>
+          </Link>
         </div>
 
-        <Button auto color="success" onPress={logUser} type={null}>
+        <Button auto onPress={logUser} type={null} className="gradient">
           Se connecter
         </Button>
 
         <div className="flex justify-center ">
-          <Link href={'/signUp'}>Don't have an account ? Sign Up</Link>
+          <Link href={'/signUp'}>
+            <p className="text-black text-sm text-center text-lg">
+              Pas de compte ? S'inscrire
+            </p>
+          </Link>
         </div>
 
         <div>
           <hr />
         </div>
-      </Modal.Body>
-    </Modal>
+      </div>
+    </div>
   )
 }
 export default SignInPage

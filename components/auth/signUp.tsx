@@ -1,4 +1,4 @@
-import { Button, Input, Modal, Text } from '@nextui-org/react'
+import { Button, Input, Image, Text, Link } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, useState } from 'react'
 import { BsFillFileLockFill, BsPersonFill } from 'react-icons/bs'
@@ -53,7 +53,6 @@ const SignUpPage: FunctionComponent = () => {
     const res = await postWithAxios('/api/register', user)
 
     res.errors ? setError(res.errors) : setData(res)
-    res.errors ? console.log(res.errors) : console.log(res)
 
     if (!res.errors) {
       toast(res.message)
@@ -62,34 +61,28 @@ const SignUpPage: FunctionComponent = () => {
   }
 
   return (
-    <Modal
-      open={true}
-      closeButton
-      onClose={() => redirectTo('/')}
-      className="SignInBackground"
-    >
-      <Modal.Header>
-        <Text id="modal-title" size={18} color={'#FFFFFF'}>
-          Welcome to{' '}
-          <Text b size={18} color={'#FFFFFF'}>
-            {appTitle}
-          </Text>
-        </Text>
-      </Modal.Header>
-      <Modal.Body>
-        <Text id="modal-title" size={18} color={'#FFFFFF'}>
-          Sign In with email
+    <div className="grid gradient min-h-screen sm:grid-cols-2">
+      <div className="hidden sm:flex sm:flex-col justify-center gap-6 ">
+        <Image alt="login image" src="images/welcome.svg" width={320} />
+      </div>
+      <div className="flex flex-col justify-center  gap-4 bg-white p-12">
+        <Text
+          id="modal-title"
+          size={18}
+          className="mb-8 text-4xl text-center font-bold "
+        >
+          {appTitle}
         </Text>
 
-        <ToastContainer />
+        <Text id="modal-title" size={18} className="mb-3 text-xl">
+          Inscrivez vous ici
+        </Text>
 
         <Input
           clearable
           bordered
           fullWidth
           size="lg"
-          helperColor={error.name ? 'error' : null}
-          helperText={error.name ? error.name : null}
           placeholder="Nom d'utilisateur"
           contentLeft={<BsPersonFill />}
           css={{
@@ -101,6 +94,8 @@ const SignUpPage: FunctionComponent = () => {
           onChange={getName}
           value={name}
         />
+
+        {error.name && <p className="text-red-400 -mt-3"> {error.name}</p>}
 
         <Input
           clearable
@@ -119,6 +114,8 @@ const SignUpPage: FunctionComponent = () => {
           value={email}
         />
 
+        {error.email && <p className="text-red-400 -mt-3"> {error.email}</p>}
+
         <Input.Password
           clearable
           bordered
@@ -130,7 +127,9 @@ const SignUpPage: FunctionComponent = () => {
           onChange={getPassword}
           value={password}
         />
-
+        {error.password && (
+          <p className="text-red-400 -mt-3"> {error.password}</p>
+        )}
         <Input.Password
           clearable
           bordered
@@ -143,20 +142,31 @@ const SignUpPage: FunctionComponent = () => {
           value={confirmedPassword}
         />
 
+        {error.password && (
+          <p className="text-red-400 -mt-3"> {error.password}</p>
+        )}
         <Button
           auto
-          color="success"
+          className="gradient"
           onPress={registerNewUserAndRedirectOnSuccess}
           type={null}
         >
           S'enregistrer
         </Button>
 
+        <div className="flex justify-center ">
+          <Link href="/signIn">
+            <p className="text-black text-sm text-center text-lg">
+              Déjà inscrit ? Se connecter
+            </p>
+          </Link>
+        </div>
+
         <div>
           <hr />
         </div>
-      </Modal.Body>
-    </Modal>
+      </div>
+    </div>
   )
 }
 export default SignUpPage
