@@ -27,7 +27,7 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
     return (
       <div className="bg-white dark:bg-black">
         <UserNavbar userImage={user?.image} userName={user?.name} />
-        <div className="mb-[100px]  z-50">{children}</div>
+        <div className="mb-[70px]  z-50">{children}</div>
 
         <FooterNav />
       </div>

@@ -33,8 +33,8 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
 
   return (
     <UserSpaceLayout user={user}>
-      <div className="w-full ">
-        <div className=" rounded-[20px]  w-full  bg-transparent dark:bg-zinc-800  ">
+      <div className="w-full p-12 ">
+        <div className=" rounded-[20px]  w-full  bg-white dark:bg-zinc-800  ">
           <div className=" flex justify-center w-full">
             <Text
               b

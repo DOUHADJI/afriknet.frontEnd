@@ -59,10 +59,8 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
         <Text id="modal-title" size={18} className="mb-3 text-xl">
           Entrer dans votre espace client
         </Text>
-        
-        {data.error && (
-          <p className="text-red-400 -mt-3"> {data.error}</p>
-        )}
+
+        {data.error && <p className="text-red-400 -mt-3"> {data.error}</p>}
         <Input
           clearable
           bordered
@@ -99,8 +97,6 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
         {error.password && (
           <p className="text-red-400 -mt-3"> {error.password}</p>
         )}
-
-
 
         <div className="grid sm:grid-cols-2">
           <Checkbox

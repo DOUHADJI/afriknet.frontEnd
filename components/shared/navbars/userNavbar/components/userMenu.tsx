@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { FunctionComponent } from 'react'
 import {
   BsArrowLeft,
+  BsFillCheckCircleFill,
   BsFillHouseFill,
   BsFillPersonFill,
   BsQuestionCircleFill,
@@ -21,19 +22,19 @@ const UserMenu: FunctionComponent<{ userImage }> = ({ userImage }) => {
 
   const MenuItems = [
     {
-      title: "Page d'accueil",
-      link: '/userHome',
-      icon: <BsFillHouseFill size={18} />,
+      title: 'Abonnement',
+      link: '/current_subscription',
+      icon: <BsFillCheckCircleFill size={18} />,
     },
 
     {
-      title: 'Votre profil',
+      title: 'Profil',
       link: '/profil',
       icon: <BsFillPersonFill size={18} />,
     },
 
     {
-      title: 'Historique de vos abonnements',
+      title: 'Historique',
       link: '/historique_de_vos_abonnements',
       icon: <BsTable size={18} />,
     },

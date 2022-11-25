@@ -50,14 +50,13 @@ const SignUpPage: FunctionComponent = () => {
       password_confirmation: confirmedPassword,
     }
 
-    const res = await postWithAxios('/api/register', user)
+    const res = await postWithAxios('/register', user)
+    console.log(res.user)
+    if (res.user) {
+      redirectTo('/signIn')
+    }
 
     res.errors ? setError(res.errors) : setData(res)
-
-    if (!res.errors) {
-      toast(res.message)
-      redirectTo('/')
-    }
   }
 
   return (

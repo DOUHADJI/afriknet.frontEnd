@@ -25,6 +25,7 @@ const ImgUploader: FunctionComponent<{ user }> = ({ user }) => {
       </Button>
       <Input
         id="fileInput"
+        label="profil"
         type={'file'}
         css={{ display: 'none' }}
         onChange={() => {}}

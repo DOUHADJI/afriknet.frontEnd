@@ -14,7 +14,19 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
         </Text>
       </div>
 
-      <div className="mt-6 w-full rounded-[20px]  p-4 dark:bg-zinc-800 dark:border-gray-700 ">
+      <div className="mt-6 w-full rounded-[20px]  p-4 bg-gray-200 dark:bg-zinc-800 dark:border-gray-700 ">
+        <div className="flex justify-end items-center mt-4 w-full gap-4">
+          <Button
+            auto
+            type={null}
+            className="bg-red-600 dark:bg-red-900 text-gray-300"
+            onClick={() => showUpdateForm(true)}
+          >
+            <p className="text-slate-100 dark:text-white">
+              Modifier mes informations
+            </p>
+          </Button>
+        </div>
         <div>
           <Grid.Container gap={2}>
             <Grid sm={4} className="w-full">
@@ -63,7 +75,7 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
                     </Text>
                     <Input
                       readOnly
-                      value={user?.name}
+                      value={user?.city}
                       id={'name'}
                       aria-label={'Ville'}
                       color={'primary'}
@@ -78,7 +90,7 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
                     </Text>
                     <Input
                       readOnly
-                      value={user?.name}
+                      value={user?.country}
                       id={'name'}
                       aria-label={'Pays'}
                       color={'primary'}
@@ -96,7 +108,7 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
                     </Text>
                     <Input
                       readOnly
-                      value={user?.name}
+                      value={user?.address}
                       id={'name'}
                       aria-label={'Addresse de domicile'}
                       color={'primary'}
@@ -112,7 +124,7 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
                     </Text>
                     <Input
                       readOnly
-                      value={user?.name}
+                      value={user?.contact}
                       id={'name'}
                       aria-label={'contact'}
                       color={'primary'}
@@ -123,16 +135,6 @@ const ProfilInformations: FunctionComponent<{ user; showUpdateForm }> = ({
             </Grid>
           </Grid.Container>
         </div>
-      </div>
-      <div className="flex justify-end items-center mt-4 w-full gap-4">
-        <Button
-          auto
-          type={null}
-          className="bg-red-300 dark:bg-zinc-900 text-gray-300"
-          onClick={() => showUpdateForm(true)}
-        >
-          <p className="text-zinc-600">Modifier mes informations</p>
-        </Button>
       </div>
     </div>
   )

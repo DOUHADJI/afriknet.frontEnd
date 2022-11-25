@@ -30,8 +30,8 @@ const FooterNav: FunctionComponent = () => {
     },
   ]
   return (
-    <div className="fixed bottom-0 w-full z-30">
-      <div className="flex justify-around bg-gray-400 h-[200px w-full] py-4 px-6 dark:bg-[#3e3e3e]">
+    <div className="fixed bottom-0 w-full z-[200]">
+      <div className="flex justify-around bg-gray-400 h-[70px] w-full py-4 px-6 dark:bg-[#3e3e3e]">
         {Links.map((item, index) => (
           <NavLinkItem
             key={index}
