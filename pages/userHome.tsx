@@ -4,8 +4,6 @@ import { getUserFromAPI } from '../components/shared/const/api'
 import UserSpaceHome from '../components/userSpace/pages/home/home'
 
 const UserHome: FunctionComponent<{}> = ({}) => {
-  /*  console.log(user) */
-
   const [user, setUser] = useState()
 
   const getUser = async () => {

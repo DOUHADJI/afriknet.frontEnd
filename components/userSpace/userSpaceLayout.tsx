@@ -1,9 +1,11 @@
-import { Loading } from '@nextui-org/react'
+import { Button, Loading, Modal } from '@nextui-org/react'
 import { useRouter } from 'next/router'
-import { FunctionComponent, ReactNode, useEffect } from 'react'
+import { FunctionComponent, ReactNode, useEffect, useState } from 'react'
 import { getUserFromAPI } from '../shared/const/api'
 import UserNavbar from '../shared/navbars/userNavbar/userNavbar'
 import FooterNav from './components/footerNav'
+import CompleteProfilModal from './pages/profil/components/completeProfilModal'
+import UpdateProfilInformations from './pages/profil/components/updateProfilInformations'
 
 const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
   children,
@@ -19,8 +21,20 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
     }
   }
 
+  const isProfilComplete = () => {
+    if (!user?.city && !user?.country && !user?.address && !user?.contact) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   useEffect(() => {
     redirectToLogin()
+  }, [])
+
+  useEffect(() => {
+    console.log(isProfilComplete())
   }, [])
 
   if (user) {
@@ -28,8 +42,11 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
       <div className="bg-white dark:bg-black">
         <UserNavbar userImage={user?.image} userName={user?.name} />
         <div className="mb-[70px]  z-50">{children}</div>
-
         <FooterNav />
+
+        {isProfilComplete() === true ? null : (
+          <CompleteProfilModal user={user} />
+        )}
       </div>
     )
   } else {

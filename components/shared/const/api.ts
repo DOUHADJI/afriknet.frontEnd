@@ -61,7 +61,6 @@ export const postWithAxios = async (url: string, dataToSend: Object) => {
 
 export const getUserFromAPI = async () => {
   const data = await getWithAxios('/user')
-  console.log(data)
   return data
 }
 

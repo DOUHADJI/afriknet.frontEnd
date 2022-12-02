@@ -1,32 +1,13 @@
-import { Grid, Text, Button, Input } from '@nextui-org/react'
-import Router, { useRouter } from 'next/router'
-import { FunctionComponent, useState, useEffect } from 'react'
+import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { FunctionComponent, useState } from 'react'
+import { useRouter } from 'next/router'
 import { postWithAxios } from '../../../../shared/const/api'
 import ImgUploader from './imgUploader'
 
-const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
-  user,
-  hideUpdateForm,
-}) => {
+const CompleteProfilModal: FunctionComponent<{ user }> = ({ user }) => {
+  const [open, setOpen] = useState(true)
   const [userInformations, setUserInformations] = useState(user)
-
   const router = useRouter()
-
-  const getName = (e) => {
-    const name = e.target.value
-    setUserInformations((previous) => ({
-      ...previous,
-      name: name,
-    }))
-  }
-
-  const getEmail = (e) => {
-    const email = e.target.value
-    setUserInformations((previous) => ({
-      ...previous,
-      email: email,
-    }))
-  }
 
   const getCity = (e) => {
     const city = e.target.value
@@ -64,57 +45,22 @@ const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
     const res = await postWithAxios('/update', userInformations)
 
     if (res.status === 'success') {
-      hideUpdateForm(false)
       router.reload()
     }
   }
 
   return (
-    <div className="w-screen ">
-      <div className="flex  items-center justify-center ">
-        <Text b className="text-gray-500 text-center  dark:text-white">
-          Mettre votre profil à jour{' '}
-        </Text>
-      </div>
-
-      <div className="mt-6 w-full rounded-[20px]  p-4 bg-gray-200 dark:bg-zinc-900 dark:border-gray-700 ">
+    <Modal open={open} preventClose className="mx-5">
+      <Modal.Header>Complétez les informations de votre profil...</Modal.Header>
+      <Modal.Body className="p-12">
         <div>
           <Grid.Container gap={2}>
-            <Grid sm={4} className="w-full">
+            <Grid sm={12} className="w-full">
               <ImgUploader user={user} />
             </Grid>
 
-            <Grid sm={8} className="w-full">
+            <Grid sm={12} className="w-full">
               <div className="grid gap-3 w-full ">
-                <div className="grid">
-                  <Text
-                    b
-                    className="text-sm ml-4 mb-2 text-gray-500  dark:text-white"
-                  >
-                    {' '}
-                    Nom et prénoms
-                  </Text>
-                  <Input
-                    placeholder={user?.name}
-                    onChange={getName}
-                    aria-label={'Nom et prénoms'}
-                    color={'primary'}
-                  />
-                </div>
-                <div className="grid">
-                  <Text
-                    b
-                    className="text-sm ml-4 mb-2 text-gray-500  dark:text-white"
-                  >
-                    {' '}
-                    Email
-                  </Text>
-                  <Input
-                    placeholder={user ? user.email : 'johndoe@email.com'}
-                    aria-label={'Email'}
-                    onChange={getEmail}
-                  />
-                </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="grid">
                     <Text
@@ -183,10 +129,11 @@ const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
         </div>
         <div className="flex justify-end items-center mt-4 w-full gap-4">
           <Button
+            disabled
             auto
             type={null}
             className="bg-red-600 text-white dark:bg-red-800 text-gray-300"
-            onClick={() => hideUpdateForm(false)}
+            onClick={() => setOpen(false)}
           >
             <p className="text-white">retour</p>
           </Button>
@@ -200,9 +147,8 @@ const UpdateProfilInformations: FunctionComponent<{ user; hideUpdateForm }> = ({
             <p className="text-white">Enregistrer</p>
           </Button>
         </div>
-      </div>
-    </div>
+      </Modal.Body>
+    </Modal>
   )
 }
-
-export default UpdateProfilInformations
+export default CompleteProfilModal
