@@ -64,6 +64,11 @@ export const getUserFromAPI = async () => {
   return data
 }
 
+export const getOffersFromAPI = async () => {
+  const {offers} = await getWithAxios('/offers')
+  return offers
+}
+
 export const getCookieValue = (tokenName: string) => {
   const token = document.cookie
 

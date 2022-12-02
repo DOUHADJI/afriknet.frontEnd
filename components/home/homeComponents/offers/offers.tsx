@@ -1,13 +1,23 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useState, useEffect } from 'react'
 import { WaveTopSvg } from '../waveSvg'
 import { Installation } from './offersComponents/installation/Installation'
 import { BsPhone, BsWifi } from 'react-icons/bs'
 import OfferCard from './offersComponents/offerCard'
 import { GrSatellite } from 'react-icons/gr'
 import PromoOffer from './offersComponents/PromoOffer'
+import { getOffersFromAPI } from '../../../shared/const/api'
 
 const Offers: FunctionComponent = () => {
-  const offers = [
+
+const [offers, setOffers] = useState([])
+
+  const getOffers =  async () => {
+    const result = await getOffersFromAPI() 
+   setOffers(result)
+  }
+
+
+  const offers_description = [
     {
       type: 'Internet',
       offer_name: 'Easy Surfing',
@@ -40,7 +50,6 @@ const Offers: FunctionComponent = () => {
       icons: [<BsWifi key={'03'} />, <GrSatellite key={'04'} />],
       advantages: [
         " Jusqu'à 100 Mbps",
-
         '200+ chaînes',
         'Routeur Wi-Fi',
         'Appareils illimités',
@@ -66,6 +75,11 @@ const Offers: FunctionComponent = () => {
       price: '40000',
     },
   ]
+
+  useEffect( () => {
+    getOffers()
+    console.log(offers)
+  } ,[])
   return (
     <div>
       <section className="bg-gray-100  pt-[150px]">
@@ -77,14 +91,14 @@ const Offers: FunctionComponent = () => {
             <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:flex-row justify-center pt-12 my-12 sm:my-4 md:grid-cols-2">
-            {offers.map((item, index) => (
+            {offers_description.map((item, index) => (
               <OfferCard
                 key={index}
-                type={item.type}
-                offer_name={item.offer_name}
+                type={offers[index]?.type}
+                offer_name={offers[index]?.name}
                 icons={item.icons}
                 advantages={item.advantages}
-                price={item.price}
+                price={offers[index]?.price}
               />
             ))}
           </div>
