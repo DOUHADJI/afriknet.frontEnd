@@ -1,6 +1,7 @@
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { CssBaseline } from '@nextui-org/react'
+import { ToastContainer } from 'react-toastify'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -17,6 +18,7 @@ class MyDocument extends Document {
         <Head>{CssBaseline.flush()}</Head>
         <body className="bg-white dark:bg-black">
           <Main />
+
           <NextScript />
         </body>
       </Html>

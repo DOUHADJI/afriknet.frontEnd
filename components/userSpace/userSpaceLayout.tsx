@@ -1,6 +1,7 @@
 import { Button, Loading, Modal } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FunctionComponent, ReactNode, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import { getUserFromAPI } from '../shared/const/api'
 import UserNavbar from '../shared/navbars/userNavbar/userNavbar'
 import FooterNav from './components/footerNav'
@@ -21,6 +22,21 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
     }
   }
 
+  const notifySuccess = () =>
+    toast('connexion réussie', {
+      type: 'success',
+      hideProgressBar: true,
+    })
+
+  const connecting = () => {
+    const isConnecting = localStorage.getItem('isConnecting')
+
+    if (isConnecting === 'true') {
+      notifySuccess()
+      localStorage.setItem('isConnecting', 'false')
+    }
+  }
+
   const isProfilComplete = () => {
     if (!user?.city && !user?.country && !user?.address && !user?.contact) {
       return false
@@ -34,7 +50,7 @@ const UserSpaceLayout: FunctionComponent<{ user; children: ReactNode }> = ({
   }, [])
 
   useEffect(() => {
-    console.log(isProfilComplete())
+    connecting()
   }, [])
 
   if (user) {

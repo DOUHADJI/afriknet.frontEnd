@@ -1,11 +1,9 @@
 import UserSpaceAbonnement from '../components/userSpace/pages/abonnement/abonnement'
 import { FunctionComponent, useState, useEffect } from 'react'
-import {  getUserFromAPI } from '../components/shared/const/api'
+import { getUserFromAPI } from '../components/shared/const/api'
 
 const CurrenSubscription: FunctionComponent = () => {
   const [user, setUser] = useState()
-
-  
 
   const getUser = async () => {
     const data = await getUserFromAPI()

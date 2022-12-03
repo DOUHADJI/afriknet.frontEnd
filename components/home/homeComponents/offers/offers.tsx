@@ -8,14 +8,12 @@ import PromoOffer from './offersComponents/PromoOffer'
 import { getOffersFromAPI } from '../../../shared/const/api'
 
 const Offers: FunctionComponent = () => {
+  const [offers, setOffers] = useState([])
 
-const [offers, setOffers] = useState([])
-
-  const getOffers =  async () => {
-    const result = await getOffersFromAPI() 
-   setOffers(result)
+  const getOffers = async () => {
+    const result = await getOffersFromAPI()
+    setOffers(result)
   }
-
 
   const offers_description = [
     {
@@ -76,10 +74,9 @@ const [offers, setOffers] = useState([])
     },
   ]
 
-  useEffect( () => {
+  useEffect(() => {
     getOffers()
-    console.log(offers)
-  } ,[])
+  }, [])
   return (
     <div>
       <section className="bg-gray-100  pt-[150px]">

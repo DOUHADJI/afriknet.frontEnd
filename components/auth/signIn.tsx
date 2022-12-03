@@ -34,6 +34,7 @@ const SignInPage: FunctionComponent<{}> = ({}) => {
     res.errors ? setError(res.errors) : setData(res)
 
     if (res.status === 'success') {
+      localStorage.setItem('isConnecting', 'true')
       router.push('/userHome')
     }
   }

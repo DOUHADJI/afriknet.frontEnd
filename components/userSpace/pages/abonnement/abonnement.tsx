@@ -3,7 +3,7 @@ import { appTitle } from '../../../shared/const/const'
 import ComplaintModal from '../../components/complaintModal'
 import RequestModal from '../../components/requestModal'
 import UserSpaceLayout from '../../userSpaceLayout'
-import UserBannerAskForService from './components/UserBannerAskForService'
+import UserBannerAskForSubscription from './components/UserBannerAskForSubscription'
 import UserBannerContent from './components/userBannerContent'
 
 const UserSpaceAbonnement: FunctionComponent<{
@@ -27,7 +27,7 @@ const UserSpaceAbonnement: FunctionComponent<{
             setShowRequestModal={setShowRequestModal}
             setShowComplaintModal={setShowComplaintModal}
           />
-          <UserBannerAskForService />
+          <UserBannerAskForSubscription />
 
           <RequestModal
             show={showRequestModal}

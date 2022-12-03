@@ -46,16 +46,12 @@ export const postWithAxios = async (url: string, dataToSend: Object) => {
     withCredentials: true,
   }
 
-  console.log(axiosInstance().post(url, dataToSend, params))
-
   try {
     const { data } = await axiosInstance().post(url, dataToSend)
     return data
   } catch (error) {
-    console.log('redind error data')
-    const { data } = error.response
-
-    return data
+    console.log(error)
+    return error
   }
 }
 
@@ -65,7 +61,7 @@ export const getUserFromAPI = async () => {
 }
 
 export const getOffersFromAPI = async () => {
-  const {offers} = await getWithAxios('/offers')
+  const { offers } = await getWithAxios('/offers')
   return offers
 }
 

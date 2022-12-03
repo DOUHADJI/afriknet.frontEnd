@@ -6,7 +6,6 @@ import HomeSection from './components/section/section'
 import TopBar from './components/topBar'
 
 const UserSpaceHome: FunctionComponent<{ user }> = ({ user }) => {
-  console.log(getSports())
   const sections = [
     {
       title: 'tout le sport',
