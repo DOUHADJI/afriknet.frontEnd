@@ -13,19 +13,19 @@ const FooterNav: FunctionComponent = () => {
 
     {
       title: 'en direct',
-      href: '#',
+      href: '/en_direct',
       icon: <BsDisplay key={'01'} />,
     },
 
     {
       title: 'chaines',
-      href: '#',
+      href: 'chaines',
       icon: <BsGridFill key={'01'} />,
     },
 
     {
       title: 'vos favoris',
-      href: '#',
+      href: 'vos_favoris',
       icon: <BsHeartFill key={'01'} />,
     },
   ]
