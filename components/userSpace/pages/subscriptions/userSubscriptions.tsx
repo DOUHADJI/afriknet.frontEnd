@@ -1,36 +1,35 @@
 import { Table, Text } from '@nextui-org/react'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useState, useEffect } from 'react'
+import { getWithAxios } from '../../../shared/const/api'
 import UserSpaceLayout from '../../userSpaceLayout'
 
 const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
+  const [subscriptions, setSubscriptions] = useState([])
+
   const tableColums = [
-    { name: 'Payé le' },
-    { name: 'Moyen de payement' },
-    { name: 'Dénomination' },
+    { name: 'Souscrit le' },
+    { name: 'Statut' },
+    { name: 'Abonnement' },
+    { name: 'Type' },
     { name: 'Montant' },
   ]
 
-  const userSubscriptions = [
-    {
-      name: 'Hebdo',
-      date: '2021-12-15',
-      by: 'Mobile',
-      price: '5000',
-    },
-    {
-      name: 'Hebdo',
-      date: '2021-12-15',
-      by: 'Mobile',
-      price: '5000',
-    },
-    {
-      name: 'Hebdo',
-      date: '2021-12-15',
-      by: 'Mobile',
-      price: '5000',
-    },
-  ]
+  const date = new Date()
 
+  console.log(date.getDate())
+
+  const getSubscriptions = async () => {
+    const { data } = await getWithAxios('/subscriptions_history')
+
+    if (data) {
+      setSubscriptions(data)
+    }
+    console.log(data)
+  }
+
+  useEffect(() => {
+    getSubscriptions()
+  }, [])
   return (
     <UserSpaceLayout user={user}>
       <div className="w-full p-12 ">
@@ -52,27 +51,49 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
                   <Table.Column key={index}>{item.name}</Table.Column>
                 ))}
               </Table.Header>
-              <Table.Body>
-                {userSubscriptions.map((item, index) => (
-                  <Table.Row key={index}>
-                    <Table.Cell>
-                      <Text className="dark:text-gray-200">{item.date}</Text>{' '}
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Text className="dark:text-gray-200">{item.by}</Text>{' '}
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Text className="dark:text-gray-200">{item.price}</Text>{' '}
-                    </Table.Cell>
-                    <Table.Cell>
-                      {' '}
-                      <Text className="dark:text-gray-200">
-                        {item.name}
-                      </Text>{' '}
-                    </Table.Cell>
+              {subscriptions == null ? (
+                <Table.Body>
+                  <Table.Row>
+                    <Text className="dark:text-gray-200">
+                      Vous n'avez souscrit à aucun abonnement
+                    </Text>
                   </Table.Row>
-                ))}
-              </Table.Body>
+                </Table.Body>
+              ) : (
+                <Table.Body>
+                  {subscriptions.map((item, index) => (
+                    <Table.Row key={index}>
+                      <Table.Cell>
+                        <Text className="dark:text-gray-200">
+                          {item.start_date}
+                        </Text>{' '}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Text className="dark:text-gray-200">
+                          {item.start_date}
+                        </Text>{' '}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Text className="dark:text-gray-200">
+                          {item.offer_id}
+                        </Text>{' '}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Text className="dark:text-gray-200">
+                          {item.offer_id}
+                        </Text>{' '}
+                      </Table.Cell>
+                      <Table.Cell>
+                        {' '}
+                        <Text className="dark:text-gray-200">
+                          {item.offer_id}
+                        </Text>{' '}
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table.Body>
+              )}
+
               <Table.Pagination
                 shadow
                 noMargin

@@ -10,7 +10,7 @@ export const axiosInstance = () => {
         Accept: 'application/json',
       },
     },
-    timeout: 5000,
+    /*  timeout: 5000, */
   })
 
   return axiosInstance
@@ -50,8 +50,7 @@ export const postWithAxios = async (url: string, dataToSend: Object) => {
     const { data } = await axiosInstance().post(url, dataToSend)
     return data
   } catch (error) {
-    console.log(error)
-    return error
+    return error.response.data
   }
 }
 

@@ -1,24 +1,32 @@
-import { Button, Text } from '@nextui-org/react'
-import { FunctionComponent } from 'react'
+import { Badge, Button, Text } from '@nextui-org/react'
+import { FunctionComponent, useState, useEffect } from 'react'
 import { BsCursorFill, BsSignal } from 'react-icons/bs'
+import { getWithAxios } from '../../../../shared/const/api'
+import ComplaintInfos from './complaintInfos'
+import SubscriptionInfos from './subscriptionInfos'
 
 const UserBannerContent: FunctionComponent<{
   user
   setShowRequestModal
   setShowComplaintModal
 }> = ({ user, setShowRequestModal, setShowComplaintModal }) => {
-  const userInformations = {
-    name: 'userName',
-    firstName: 'firstName',
-    city: 'userCity',
-    country: 'userCountry',
-    email: 'UserEmail',
-    contact: 'UserContact',
+  const [complaint, setComplaint] = useState(null)
+
+  const getTheLastestComplaint = async () => {
+    const res = await getWithAxios('/get_lastest_complaint')
+
+    res.errors ? null : setComplaint(res.data)
   }
 
+  useEffect(() => {
+    getTheLastestComplaint()
+  }, [])
+
   return (
-    <div className="flex flex-wrap justify-center gap-12 rounded-[20px] bg-gray-400 dark:bg-zinc-800 h-full p-8 sm:grid-cols-2">
-      <div className="flex flex-col items-center justify-center gap-12 h-full ">
+    <div className="flex flex-wrap-reverse justify-center items-center gap-8 rounded-[20px] bg-gray-400 dark:bg-zinc-800 h-full p-8">
+      <div className="flex flex-col items-center justify-center gap-12  ">
+        <ComplaintInfos complaint={complaint} />
+
         <div className="flex flex-wrap justify-around gap-6">
           <Button
             icon={<BsCursorFill />}
@@ -36,6 +44,7 @@ const UserBannerContent: FunctionComponent<{
             auto
             type={null}
             onPress={() => setShowComplaintModal(true)}
+            disabled={complaint ? true : false}
           >
             Formuler une plainte
           </Button>
@@ -49,12 +58,8 @@ const UserBannerContent: FunctionComponent<{
           </span>
           <span> {user.client_code ? user.client_code : 'userCode here'} </span>
         </Text>
-        <div className="flex  items-center justify-center bg-gray-500  dark:bg-zinc-700 rounded-[20px]   h-32 ">
-          <Text b color="white" size={14} className="text-center p-5">
-            <span className="text-gray-100 dark:text-white">
-              Vous n&apos;avez aucun abonnement en cours...
-            </span>
-          </Text>
+        <div className=" ">
+          <SubscriptionInfos />
         </div>
       </div>
     </div>
