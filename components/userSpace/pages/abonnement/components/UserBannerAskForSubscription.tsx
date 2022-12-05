@@ -48,7 +48,7 @@ const UserBannerAskForSubscription: FunctionComponent = () => {
           type={null}
           onPress={() => subscribeToOffer(item.id)}
         >
-          Souscrire à <span className="font-bold pl-1">{item?.id}</span>
+          Souscrire à <span className="font-bold pl-1">{item?.name}</span>
         </Button>
       ))}
     </div>
