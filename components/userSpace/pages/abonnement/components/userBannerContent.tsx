@@ -44,7 +44,7 @@ const UserBannerContent: FunctionComponent<{
             auto
             type={null}
             onPress={() => setShowComplaintModal(true)}
-            disabled={complaint?.statut != "resolved" ? true : false}
+            disabled={complaint?.statut != 'resolved' ? true : false}
           >
             Formuler une plainte
           </Button>

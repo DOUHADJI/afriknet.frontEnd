@@ -11,7 +11,6 @@ const SubscriptionInfos: FunctionComponent = () => {
     const res = await getWithAxios('/current_subscription')
 
     res.errors ? null : setData(res.data)
-
   }
 
   useEffect(() => {

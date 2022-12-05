@@ -14,8 +14,6 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
     { name: 'Montant' },
   ]
 
- 
-
   const getSubscriptions = async () => {
     const { data } = await getWithAxios('/subscriptions_history')
 
@@ -29,29 +27,33 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
     const date = new Date()
 
     const year = date.getFullYear()
-    const month = date.getMonth() +1
+    const month = date.getMonth() + 1
     const day = date.getDate()
 
     let expirationDateArray = expiration_date.split('-')
     expirationDateArray.every(Number)
 
- /*    console.log({
+    /*    console.log({
       year : year,
       month : month,
       day : day,
       expirationDateArray : expirationDateArray
     }) */
 
-    
-
-    if(year > Number(expirationDateArray[0])) {
-      console.log("année plus grande")
+    if (year > Number(expirationDateArray[0])) {
+      console.log('année plus grande')
       return 'inactive'
-    }  else {
-      if(year == Number(expirationDateArray[0]) && month > Number(expirationDateArray[1])){
+    } else {
+      if (
+        year == Number(expirationDateArray[0]) &&
+        month > Number(expirationDateArray[1])
+      ) {
         return 'inactive'
       } else {
-        if(month == Number(expirationDateArray[1]) && day >  Number(expirationDateArray[2])){
+        if (
+          month == Number(expirationDateArray[1]) &&
+          day > Number(expirationDateArray[2])
+        ) {
           return 'inactive'
         } else {
           return 'active'
@@ -103,13 +105,12 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
                       </Table.Cell>
                       <Table.Cell>
                         <Text className="dark:text-gray-200">
-                          {setSbscriptionStatus(item.expiration_date) == 'active' ?
-                            <Badge color={'success'}>en cours</Badge> 
-                            :
+                          {setSbscriptionStatus(item.expiration_date) ==
+                          'active' ? (
+                            <Badge color={'success'}>en cours</Badge>
+                          ) : (
                             <Badge color={'warning'}>expiré</Badge>
-
-                        
-                          }
+                          )}
                         </Text>{' '}
                       </Table.Cell>
                       <Table.Cell>
