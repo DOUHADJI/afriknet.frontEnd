@@ -1,4 +1,4 @@
-import { Table, Text } from '@nextui-org/react'
+import { Badge, Table, Text } from '@nextui-org/react'
 import { FunctionComponent, useState, useEffect } from 'react'
 import { getWithAxios } from '../../../shared/const/api'
 import UserSpaceLayout from '../../userSpaceLayout'
@@ -14,9 +14,7 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
     { name: 'Montant' },
   ]
 
-  const date = new Date()
-
-  console.log(date.getDate())
+ 
 
   const getSubscriptions = async () => {
     const { data } = await getWithAxios('/subscriptions_history')
@@ -25,6 +23,41 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
       setSubscriptions(data)
     }
     console.log(data)
+  }
+
+  const setSbscriptionStatus = (expiration_date) => {
+    const date = new Date()
+
+    const year = date.getFullYear()
+    const month = date.getMonth() +1
+    const day = date.getDate()
+
+    let expirationDateArray = expiration_date.split('-')
+    expirationDateArray.every(Number)
+
+ /*    console.log({
+      year : year,
+      month : month,
+      day : day,
+      expirationDateArray : expirationDateArray
+    }) */
+
+    
+
+    if(year > Number(expirationDateArray[0])) {
+      console.log("année plus grande")
+      return 'inactive'
+    }  else {
+      if(year == Number(expirationDateArray[0]) && month > Number(expirationDateArray[1])){
+        return 'inactive'
+      } else {
+        if(month == Number(expirationDateArray[1]) && day >  Number(expirationDateArray[2])){
+          return 'inactive'
+        } else {
+          return 'active'
+        }
+      }
+    }
   }
 
   useEffect(() => {
@@ -62,7 +95,7 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
               ) : (
                 <Table.Body>
                   {subscriptions.map((item, index) => (
-                    <Table.Row key={index}>
+                    <Table.Row key={index} aria-label={index}>
                       <Table.Cell>
                         <Text className="dark:text-gray-200">
                           {item.start_date}
@@ -70,7 +103,13 @@ const UserSubscriptions: FunctionComponent<{ user }> = ({ user }) => {
                       </Table.Cell>
                       <Table.Cell>
                         <Text className="dark:text-gray-200">
-                          {item.start_date}
+                          {setSbscriptionStatus(item.expiration_date) == 'active' ?
+                            <Badge color={'success'}>en cours</Badge> 
+                            :
+                            <Badge color={'warning'}>expiré</Badge>
+
+                        
+                          }
                         </Text>{' '}
                       </Table.Cell>
                       <Table.Cell>

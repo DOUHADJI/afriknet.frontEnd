@@ -26,7 +26,12 @@ const ComplaintInfos: FunctionComponent<{ complaint }> = ({ complaint }) => {
 
           <div className="flex gap-2 absolute -top-4 right-4 ">
             {/* <p className='font-bold'>Status : </p>  */}
-            <Badge color={'error'}>status : {complaint?.statut} </Badge>
+            <Badge 
+            color={
+                complaint?.statut == "resolved" ?
+                'success' :
+                'warning'
+                }>status : {complaint?.statut} </Badge>
           </div>
         </div>
       ) : (

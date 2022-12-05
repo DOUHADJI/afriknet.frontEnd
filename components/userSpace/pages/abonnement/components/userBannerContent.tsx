@@ -20,7 +20,7 @@ const UserBannerContent: FunctionComponent<{
 
   useEffect(() => {
     getTheLastestComplaint()
-  }, [])
+  }, [complaint])
 
   return (
     <div className="flex flex-wrap-reverse justify-center items-center gap-8 rounded-[20px] bg-gray-400 dark:bg-zinc-800 h-full p-8">
@@ -44,7 +44,7 @@ const UserBannerContent: FunctionComponent<{
             auto
             type={null}
             onPress={() => setShowComplaintModal(true)}
-            disabled={complaint ? true : false}
+            disabled={complaint?.statut != "resolved" ? true : false}
           >
             Formuler une plainte
           </Button>

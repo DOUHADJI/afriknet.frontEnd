@@ -12,7 +12,6 @@ const SubscriptionInfos: FunctionComponent = () => {
 
     res.errors ? null : setData(res.data)
 
-    console.log(res.data)
   }
 
   useEffect(() => {
